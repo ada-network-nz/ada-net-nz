@@ -8,7 +8,7 @@ import styled from "styled-components"
 const IndexEvent = () => {
   const data = useStaticQuery(graphql`
     {
-      wpPost(id: { eq: "cG9zdDo3MDk3" }) {
+      wpPost(id: { eq: "cG9zdDo3MzE5" }) {
         id
         title
         excerpt
