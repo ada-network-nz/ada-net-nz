@@ -66,9 +66,9 @@ export default IndexLibrary
 
 const IndexLibraryContent = styled.section`
   h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     @media screen and (min-width: 940px) {
-      font-size: 3.6rem;
+      font-size: 3.4rem;
     }
   }
 

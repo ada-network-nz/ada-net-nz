@@ -132,7 +132,7 @@
 }
 
 .wp-block-quote {
-  border-left: 0.25em solid currentColor;
+  border-left: 0.25em solid #e5f950;
   margin: 0 0 1.75em 0;
   padding-left: 1em;
 }

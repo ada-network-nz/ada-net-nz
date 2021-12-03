@@ -3,7 +3,7 @@ import React from "react"
 import styled from "styled-components"
 // import parse from "html-react-parser"
 
-import bg from "../assets/matariki.gif"
+import bg from "../assets/ada-hero.jpg"
 
 const Header = ({ title, isHomePage }) => {
   return (
@@ -15,17 +15,13 @@ const Header = ({ title, isHomePage }) => {
               <span>Aotearoa</span>
               <span>Digital</span>
               <span>Arts</span>
-              <span>Network</span>
+              <span>Network—</span>
             </h1>
             <a href="#content-home" className="header-subtext">
               a web of sites
             </a>
           </div>
-          <img
-            className="header-bg"
-            src={bg}
-            alt="Space background with stars"
-          />
+          <img className="header-bg" src={bg} alt="ada reader cover art" />
         </div>
       ) : (
         <span></span>
@@ -47,20 +43,36 @@ const HeaderContainer = styled.header`
     padding: 30px;
 
     .header-info {
-      height: 90vh;
+      height: 86vh;
       position: relative;
       z-index: 6;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: space-around;
       /* align-items:; */
     }
 
     .header-subtext {
       font-size: 2rem;
+      display: inline-block;
+      background: black;
+      padding: 0.4rem 1.6rem;
+      text-align: center;
+      color: #e5f950;
+      border: 1px solid #e5f950;
+      box-shadow: 6px 6px 0 #e5f950;
+      border-radius: 2rem;
+
       @media screen and (min-width: 940px) {
-        font-size: 3rem;
+        font-size: 2rem;
         text-align: right;
+        margin-left: auto;
+        transition: color 400ms, background 400ms;
+
+        &:hover {
+          color: black;
+          background-color: #08fe2e;
+        }
       }
     }
 
@@ -80,12 +92,14 @@ const HeaderContainer = styled.header`
     }
 
     h1 {
+      /* text-shadow: 2px 2px 10px #e5f950; */
+      text-shadow: 2px 2px 10px #000000, 6px 6px 10px #000;
       pointer-events: none;
       color: white;
       font-size: 3.6rem;
       letter-spacing: 1px;
       @media screen and (min-width: 940px) {
-        font-size: 11vw;
+        font-size: 10vw;
         line-height: 1;
       }
 

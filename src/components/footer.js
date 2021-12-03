@@ -4,9 +4,13 @@ import { Link } from "gatsby"
 
 const Footer = () => {
   return (
-    <FooterContainer style={{}}>
+    <FooterContainer>
       <p>
-        EXPLORE: <Link to="/tag">TAGS</Link>
+        ADA.NET.NZ{" "}
+        <span>
+          <br />
+        </span>
+        <Link to="/tag">/TAG</Link>
       </p>
       <p>
         <a
@@ -40,7 +44,7 @@ const Footer = () => {
 }
 
 const FooterContainer = styled.footer`
-  padding: 1rem;
+  padding: 1rem 1.4rem 1.2rem;
   background-color: black;
   font-size: 0.8rem;
   color: white;
@@ -48,10 +52,14 @@ const FooterContainer = styled.footer`
   @media screen and (min-width: 940px) {
     display: flex;
     justify-content: space-between;
+    span {
+      display: none;
+    }
   }
 
   p {
     margin: 0;
+    font-size: 1rem;
   }
 `
 

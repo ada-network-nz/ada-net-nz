@@ -43,7 +43,7 @@ const IndexEvent = () => {
     <IndexEventContent>
       <div className="container">
         <div className="info">
-          <h4>—Current Event</h4>
+          <h4>—Recent Event</h4>
           <h2>{data.wpPost.title}</h2>
           <p>{parse(data.wpPost.excerpt)}</p>
           <Link to={data.wpPost.uri} key={data.wpPost.id}>
@@ -66,9 +66,9 @@ export default IndexEvent
 
 const IndexEventContent = styled.section`
   h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     @media screen and (min-width: 940px) {
-      font-size: 3.6rem;
+      font-size: 3.4rem;
     }
   }
 
