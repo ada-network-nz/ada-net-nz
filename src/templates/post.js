@@ -173,8 +173,8 @@ const Post = styled.article`
     margin: 0 auto;
     padding: 0.8rem;
     @media screen and (min-width: 940px) {
-      padding-top: 2rem;
-      max-width: 700px;
+      padding-top: 3.4rem;
+      max-width: 760px;
     }
 
     .gatsby-image-wrapper {

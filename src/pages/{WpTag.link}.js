@@ -11,7 +11,7 @@ const TagPage = ({ data }) => {
       <TagPageContainer>
         <div className="tag-page__title">
           <h1>
-            Artbase tag == <span>{name}</span>
+            ada.net.nz/tag == <span>{name}</span>
           </h1>
         </div>
         <TagsList name={name} />
