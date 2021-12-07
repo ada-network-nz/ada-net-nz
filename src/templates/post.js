@@ -98,6 +98,19 @@ const Post = styled.article`
     font-variation-settings: "wdth" 120;
   }
 
+  h2 {
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 0.4rem;
+  }
+
+  .wp-block-pullquote p {
+    font-size: 1.6rem;
+    @media screen and (min-width: 940px) {
+      font-size: 2rem;
+    }
+  }
+
   /* FOOTNOTES PADDING FIX */
   p[id*="note"] a:before {
     content: "";
