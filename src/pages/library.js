@@ -6,7 +6,7 @@ import Seo from "../components/seo"
 import Image from "gatsby-image"
 
 const Library = ({ data }) => {
-  console.log(data)
+  //   console.log(data)
   return (
     <Layout>
       <Seo title="Library" />
