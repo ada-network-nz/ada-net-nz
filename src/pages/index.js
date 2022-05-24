@@ -47,14 +47,14 @@ const Home = () => {
 export default Home
 
 const TempSymposium = styled.section`
-  height: 80vh;
+  /* height: 80vh; */
   position: relative;
   background: #00fe28;
 
-  @media screen and (min-width: 940px) {
-    height: calc(100vh - 36px);
-    /* height: calc(100vh - 0); */
-  }
+  /* @media screen and (min-width: 940px) { */
+  /* height: calc(100vh - 36px); */
+  /* height: calc(100vh - 0); */
+  /* } */
 
   .symposium-container {
     display: flex;
@@ -73,14 +73,14 @@ const TempSymposium = styled.section`
 
   img {
     width: 100%;
-    padding: 3rem 1rem;
+    /* padding: 3rem 1rem; */
   }
 
   h2 {
     margin: 0 0 2rem 1rem;
     font-size: 2rem;
-    /* @media screen and (min-width: 940px) {
+    @media screen and (min-width: 940px) {
       text-align: center;
-    } */
+    }
   }
 `

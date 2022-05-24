@@ -22,7 +22,7 @@ const Navigation = ({ isHomePage }) => {
           </NavLink>
 
           <NavLink to="/tag/symposium2021/" onClick={() => setOpen(false)}>
-            <span>Symposium</span>
+            <span>Symposium 22</span>
           </NavLink>
 
           <NavLink
