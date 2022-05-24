@@ -52,8 +52,8 @@ const TempSymposium = styled.section`
   background: #00fe28;
 
   @media screen and (min-width: 940px) {
-    height: calc(100vh - 36px);
-    /* height: calc(100vh - 0); */
+    /* height: calc(100vh - 36px); */
+    height: auto;
   }
 
   .symposium-container {
