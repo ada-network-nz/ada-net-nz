@@ -32,7 +32,7 @@ const Home = () => {
         <div className="symposium-container">
           <img src={ImgSymposium} alt="inderterminate infrastructures" />
           <Link className="symposium-link" to="/tag/symposium2021/">
-            <h2>Whakatū / Nelson 23-25 September</h2>
+            <h2>Learn more</h2>
           </Link>
         </div>
       </TempSymposium>
@@ -47,14 +47,14 @@ const Home = () => {
 export default Home
 
 const TempSymposium = styled.section`
-  /* height: 80vh; */
+  height: 80vh;
   position: relative;
   background: #00fe28;
 
-  /* @media screen and (min-width: 940px) { */
-  /* height: calc(100vh - 36px); */
-  /* height: calc(100vh - 0); */
-  /* } */
+  @media screen and (min-width: 940px) {
+    height: calc(100vh - 36px);
+    /* height: calc(100vh - 0); */
+  }
 
   .symposium-container {
     display: flex;
