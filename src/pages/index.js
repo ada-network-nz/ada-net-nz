@@ -9,40 +9,30 @@ import IndexLibrary from "../components/indexLibrary"
 import IndexEvent from "../components/indexEvent"
 import IndexArtbase from "../components/indexArtbase"
 
-import ImgSymposium from "../assets/ada-sym-green.gif"
+// import ImgSymposium from "../assets/ada-sym-green.gif"
+import ImgSymposium from "../assets/ada-sym-22.jpg"
 
 const Home = () => {
-  useEffect(() => {
-    const symposiumVideo = document.getElementById("video")
-    const observer = new IntersectionObserver(
-      function (entries) {
-        if (entries[0].isIntersecting === true) symposiumVideo.play()
-      },
-      { threshold: [0] }
-    )
+  //   useEffect(() => {
+  //     const symposiumVideo = document.getElementById("video")
+  //     const observer = new IntersectionObserver(
+  //       function (entries) {
+  //         if (entries[0].isIntersecting === true) symposiumVideo.play()
+  //       },
+  //       { threshold: [0] }
+  //     )
 
-    observer.observe(document.querySelector("#video"))
-  }, [])
+  //     observer.observe(document.querySelector("#video"))
+  //   }, [])
 
   return (
     <Layout isHomePage>
       <Seo title="Homepage" />
       <TempSymposium>
         <div className="symposium-container">
-          <video
-            style={{ maxHeight: "82vh" }}
-            id="video"
-            width="100%"
-            height="100%"
-          >
-            <source src="ada-splash-compressed.mp4" type="video/mp4" />
-            <img
-              src={ImgSymposium}
-              alt="inderterminate infrastructure text behind green background"
-            />
-          </video>
+          <img src={ImgSymposium} alt="inderterminate infrastructures" />
           <Link className="symposium-link" to="/tag/symposium2021/">
-            <h2>Pōneke/Wellington Symposium 2021</h2>
+            <h2>Whakatū / Nelson 23-25 September</h2>
           </Link>
         </div>
       </TempSymposium>
@@ -89,8 +79,8 @@ const TempSymposium = styled.section`
   h2 {
     margin: 0 0 2rem 1rem;
     font-size: 2rem;
-    @media screen and (min-width: 940px) {
+    /* @media screen and (min-width: 940px) {
       text-align: center;
-    }
+    } */
   }
 `
