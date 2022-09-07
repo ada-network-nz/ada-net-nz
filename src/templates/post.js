@@ -216,15 +216,15 @@ const PostNav = styled.nav`
     height: 100%;
     line-height: 1;
     display: block;
-    color: var(--color-primary);
-    border: 1px solid var(--color-primary);
+    color: var(--color-primary-light);
+    border: 1px solid var(--color-primary-light);
     border-radius: 1rem;
     padding: 1rem;
     transition: color 300ms, border 300ms;
 
     &:hover {
-      color: var(--color-primary-light);
-      border: 1px solid var(--color-primary-light);
+      color: var(--color-primary-bright);
+      border: 1px solid var(--color-primary-bright);
     }
   }
 `

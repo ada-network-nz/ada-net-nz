@@ -159,9 +159,11 @@ const Artbase = styled.ol`
       background: black;
       padding: 0.4rem 0.8rem;
       margin: 0 0.2rem 0.2rem 0;
+      color: var(--color-primary-light);
+      transition: background 300ms;
 
       &:hover {
-        color: var(--color-primary-light);
+        background: var(--color-primary-dark);
       }
     }
   }

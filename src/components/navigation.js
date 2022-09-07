@@ -21,7 +21,7 @@ const Navigation = ({ isHomePage }) => {
             <span>ADA.NET.NZ</span>
           </NavLink>
 
-          <NavLink to="/tag/symposium2021/" onClick={() => setOpen(false)}>
+          <NavLink to="/tag/symposium2022/" onClick={() => setOpen(false)}>
             <span>Symposium 22</span>
           </NavLink>
 

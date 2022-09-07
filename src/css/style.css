@@ -78,6 +78,7 @@
   --color-primary: #859608;
   --color-primary-dark: #5a6601;
   --color-primary-light: #e5f950;
+  --color-primary-bright: #00fe28;
   --color-text: #1c1c1c;
   --color-text-light: #4f5969;
   --color-heading: #1a202c;
@@ -204,7 +205,8 @@ ol {
   margin-right: var(--spacing-0);
   padding: var(--spacing-0);
   margin-bottom: var(--spacing-8);
-  list-style-position: outside;
+  /* list-style-position: outside; */
+  list-style-position: inside;
   list-style-image: none;
 }
 
@@ -226,18 +228,61 @@ li > ul {
   margin-left: var(--spacing-8);
   margin-top: calc(var(--spacing-8) / 2);
 }
+/* RELATED POST  */
+.yarpp-related-website,
+.yarpp-template-list {
+  background: var(--color-primary-light);
+  padding: 0.2em 2em 0.2em;
+}
+
+.yarpp-template-list ol {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  list-style-type: none;
+  /* justify-content: space-between; */
+}
+
+.yarpp-template-list h3 {
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 1em;
+}
+
+.yarpp-template-list li {
+  margin: 0 1em 1em 0;
+}
+
+/* .yarpp-template-list li::marker {
+  padding-right: 1em;
+  font-weight: 900;
+} */
+
+.yarpp-template-list li a {
+  display: inline-block;
+  font-weight: 700;
+  padding: 0.4em 0.8em;
+  background: black;
+  color: var(--color-primary-light);
+  border: var(--color-primary) 1px solid;
+}
+
+.yarpp-template-list li a:hover {
+  color: var(--color-primary-bright);
+}
 
 blockquote {
-  /* color: var(--color-primary-dark); */
   color: var(--color-heading-black);
-  margin-left: calc(-1 * var(--spacing-6));
+  margin-top: var(--spacing-2);
   margin-right: var(--spacing-8);
-  padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6);
+  margin-bottom: var(--spacing-8);
+  margin-left: calc(-1 * var(--spacing-6));
+  padding: var(--spacing-2) var(--spacing-0) var(--spacing-2) var(--spacing-6);
   /* border-left: var(--spacing-1) solid var(--color-primary); */
   font-size: var(--fontSize-2);
   /* font-style: italic; */
   font-variation-settings: "wdth" 120;
-  margin-bottom: var(--spacing-8);
 }
 
 blockquote > :last-child {

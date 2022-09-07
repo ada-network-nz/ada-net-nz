@@ -1,4 +1,5 @@
-import React, { useEffect } from "react"
+import React from "react"
+// import React, { useEffect } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
@@ -31,7 +32,7 @@ const Home = () => {
       <TempSymposium>
         <div className="symposium-container">
           <img src={ImgSymposium} alt="inderterminate infrastructures" />
-          <Link className="symposium-link" to="/tag/symposium2021/">
+          <Link className="symposium-link" to="/tag/symposium2022/">
             <h2>Learn more</h2>
           </Link>
         </div>

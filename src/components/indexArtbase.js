@@ -8,7 +8,7 @@ import styled from "styled-components"
 const IndexArtbase = () => {
   const data = useStaticQuery(graphql`
     {
-      wpPost(id: { eq: "cG9zdDo5NDA=" }) {
+      wpPost(id: { eq: "cG9zdDo1Njg0" }) {
         id
         title
         excerpt

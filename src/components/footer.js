@@ -6,10 +6,7 @@ const Footer = () => {
   return (
     <FooterContainer>
       <p>
-        ADA.NET.NZ{" "}
-        <span>
-          <br />
-        </span>
+        ADA.NET.NZ
         <Link to="/tag">/TAG</Link>
       </p>
       <p>
@@ -60,6 +57,18 @@ const FooterContainer = styled.footer`
   p {
     margin: 0;
     font-size: 1rem;
+  }
+
+  a {
+    color: var(--color-primary-light);
+
+    &:hover {
+      color: var(--color-primary-bright);
+    }
+  }
+
+  Link {
+    display: inline;
   }
 `
 
