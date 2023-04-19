@@ -4,6 +4,7 @@ import Navigation from "./navigation"
 import Header from "./header"
 
 import Footer from "./footer"
+import ThursdayTrader from "./ThursdayTrader"
 
 const Layout = ({ isHomePage, children }) => {
   const {
@@ -32,6 +33,7 @@ const Layout = ({ isHomePage, children }) => {
         className="global-wrapper"
         data-is-root-path={isHomePage}
       >
+        <ThursdayTrader />
         <main>{children}</main>
 
         <Footer />
