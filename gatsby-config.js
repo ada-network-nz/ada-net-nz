@@ -85,14 +85,5 @@ module.exports = {
         // Add any options here
       },
     },
-    // Test for ThursdayTrader
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `assets`,
-        path: `${__dirname}/src/assets/`,
-        ignore: [`**/\.*`], // ignore files starting with a dot
-      },
-    },
   ],
 }

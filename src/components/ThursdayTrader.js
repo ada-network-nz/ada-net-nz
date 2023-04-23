@@ -1,35 +1,41 @@
-import React, { useEffect } from "react"
-import { Helmet } from "react-helmet"
+import React from "react"
+import styled from "styled-components"
 
 const ThursdayTrader = () => {
-  useEffect(() => {
-    const gameTable = document.getElementById("gameTable")
-    const styleLink = document.createElement("link")
-    styleLink.rel = "stylesheet"
-    styleLink.href = "../src/assets/ThursdayTrader/ThursdayTrader_files/main.css"
-    gameTable.appendChild(styleLink)
-    const jqueryScript = document.createElement("script")
-    jqueryScript.src = "src/assets/ThursdayTrader/ThursdayTrader_files/jquery-3.4.1.min.js"
-    gameTable.appendChild(jqueryScript)
-    const mainScript = document.createElement("script")
-    mainScript.src = "src/assets/ThursdayTrader/ThursdayTrader_files/main.js"
-    gameTable.appendChild(mainScript)
-  }, [])
 
   return (
-    <>
-      <Helmet>
-        <title>Game Page</title>
-      </Helmet>
+    <ThursdayTraderContent>
+
+        <h2>Game Page</h2>
+   
+      <div class="container">
       <div id="gameTable">
-        hi
-        {/* <iframe src ='src/assets/ThursdayTrader/index.html'></iframe> */}
-        
-        {/* <iframe src ='https://raw.githubusercontent.com/harriet-waldron/TheThursdayTrader-Static/main/index.html'></iframe> */}
-        {require("../../src/assets/ThursdayTrader/index.html")}
+        <iframe src ='/ThursdayTrader/index_thursday.html' title="thursday_trader" style={{width:'800px',height:'600px'}}></iframe>
       </div>
-    </>
+      </div>
+    </ThursdayTraderContent>
   )
 }
 
 export default ThursdayTrader
+
+const ThursdayTraderContent = styled.section`
+  h2 {
+    font-size: 1.8rem;
+    @media screen and (min-width: 940px) {
+      font-size: 3.4rem;
+    }
+  }
+
+  .container {
+    color: black;
+    display: grid;
+    min-height: 100vh;
+
+    @media screen and (min-width: 940px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+  }
+
+`

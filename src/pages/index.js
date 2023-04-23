@@ -9,6 +9,7 @@ import Seo from "../components/seo"
 import IndexLibrary from "../components/indexLibrary"
 import IndexEvent from "../components/indexEvent"
 import IndexArtbase from "../components/indexArtbase"
+import ThursdayTrader from "../components/ThursdayTrader"
 
 // import ImgSymposium from "../assets/ada-sym-green.gif"
 import ImgSymposium from "../assets/ada-sym-22.jpg"
@@ -29,6 +30,7 @@ const Home = () => {
   return (
     <Layout isHomePage>
       <Seo title="Homepage" />
+      <ThursdayTrader />
       <TempSymposium>
         <div className="symposium-container">
           <img src={ImgSymposium} alt="inderterminate infrastructures" />
@@ -37,7 +39,6 @@ const Home = () => {
           </Link>
         </div>
       </TempSymposium>
-
       <IndexLibrary />
       <IndexEvent />
       <IndexArtbase />
