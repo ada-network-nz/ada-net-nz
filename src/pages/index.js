@@ -31,14 +31,14 @@ const Home = () => {
     <Layout isHomePage>
       <Seo title="Homepage" />
       <ThursdayTrader />
-      <TempSymposium>
+      {/* <TempSymposium>
         <div className="symposium-container">
           <img src={ImgSymposium} alt="inderterminate infrastructures" />
           <Link className="symposium-link" to="/tag/symposium2022/">
             <h2>Learn more</h2>
           </Link>
         </div>
-      </TempSymposium>
+      </TempSymposium> */}
       <IndexLibrary />
       <IndexEvent />
       <IndexArtbase />
