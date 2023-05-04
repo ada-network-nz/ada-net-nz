@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 import parse from "html-react-parser"
@@ -52,27 +51,37 @@ const IndexRandom = () => {
 
   return (
     <IndexRandomContent>
-      <div className="container">
-        <div className="info">
-          <h2>Is life too predictable?</h2>
-          <SurpriseButton onClick={() => handleClick()}>
-            SURPRISE ME
-          </SurpriseButton>
-        </div>
-        {newIndex > 0 && (
-          <div>
-            <h2>{randomPost.title}</h2>
-            <p>{parse(randomPost.excerpt)}</p>
-            {/* using <a> instead of <Link> to prevent rerenders on mouseover */}
-            <a href={randomPost.uri} key={randomPost.id}>
-              —READ MORE
-            </a> 
-            <Image
-              fluid={featuredImage.fluid}
-              alt={featuredImage.alt}
-              style={{ width: "100%" }}
-              className="image"
-            />
+      <div>
+        {newIndex > 0 ? (
+          <div className="container">
+            <div className="info">
+              <h2>What a thrill!</h2>
+              <SurpriseButton onClick={() => handleClick()}>
+                AGAIN!
+              </SurpriseButton>
+            </div>
+            <div>
+              <h2>{randomPost.title}</h2>
+              <p>{parse(randomPost.excerpt)}</p>
+              {/* using <a> instead of <Link> to prevent rerenders on mouseover */}
+              <a href={randomPost.uri} key={randomPost.id}>
+                —READ ON
+              </a>
+              <br />
+              <Image
+                fluid={featuredImage.fluid}
+                alt={featuredImage.alt}
+                style={{ width: "100%" }}
+                className="image"
+              />
+            </div>
+          </div>
+        ) : (
+          <div className="surprise">
+            <h2>Is life too predictable?</h2>
+            <SurpriseButton onClick={() => handleClick()}>
+              SURPRISE ME
+            </SurpriseButton>
           </div>
         )}
       </div>
@@ -109,6 +118,15 @@ const IndexRandomContent = styled.section`
     }
   }
 
+  .surprise {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    border: 5px solid #08fe2e;
+  }
+
   .image {
     grid-row: 1;
     @media screen and (min-width: 940px) {
@@ -118,19 +136,20 @@ const IndexRandomContent = styled.section`
 `
 
 const SurpriseButton = styled.button`
-  background-color: #000;
-  color: #fff;
-  border: none;
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1rem;
-  margin-bottom: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  &:hover {
-    background-color: #fff;
-    color: #000;
+   {
+    font-size: 2rem;
+    display: flex;
+    background: black;
+    padding: 0.4rem 1.6rem;
+    text-align: center;
+    color: #e5f950;
+    border: 1px solid #e5f950;
+    box-shadow: 6px 6px 0 #e5f950;
+    border-radius: 2rem;
+
+    &:hover {
+      color: black;
+      background-color: #08fe2e;
+    }
   }
 `
