@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState }from "react"
 import { Link } from "gatsby"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
@@ -33,20 +33,33 @@ const IndexRandom = () => {
 
   //   console.log(randomPost)
 
-  function randomize(data) {
+    const [newPost, setNewPost] = useState(false);
+    const [newIndex, setNewIndex] = useState(0);
+
+
     const post = data.allWpPost.nodes
     const randomIndex = Math.floor(Math.random() * post.length)
-
     const randomPost = post[randomIndex]
+
     const altText = randomPost?.featuredImage?.node?.altText
 
     const featuredImage = {
       fluid: randomPost?.featuredImage?.node?.localFile?.childImageSharp.fluid,
       alt: altText !== "" ? altText : randomPost?.title,
     }
-    console.log(randomPost)
-    return (
+const handleClick = () => {
+    setNewIndex(randomIndex)
+    }
+
+  return (
+    <IndexRandomContent>
+      <div className="container">
         <div className="info">
+          <h2>Want something a little different?</h2>
+          <SurpriseButton onClick={() => handleClick()}>
+            SURPRISE ME
+          </SurpriseButton>
+          {newIndex > 0 && (<div className="info">
           <h2>{randomPost.title}</h2>
           <p>{parse(randomPost.excerpt)}</p>
           <Link to={randomPost.uri} key={randomPost.id}>
@@ -58,18 +71,10 @@ const IndexRandom = () => {
           style={{ width: "100%" }}
           className="image"
         />
-        </div>
-    )
-  }
-
-  return (
-    <IndexRandomContent>
-      <div className="container">
-        <div className="info">
-          <h2>Want something a little different?</h2>
-          <SurpriseButton onClick={() => randomize(data)}>
-            SURPRISE ME
-          </SurpriseButton>
+        </div>) 
+        
+        }
+         
         </div>
       </div>
     </IndexRandomContent>
