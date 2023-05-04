@@ -1,4 +1,4 @@
-import React, { useState }from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
@@ -33,49 +33,48 @@ const IndexRandom = () => {
 
   //   console.log(randomPost)
 
-    const [newPost, setNewPost] = useState(false);
-    const [newIndex, setNewIndex] = useState(0);
+  const [newIndex, setNewIndex] = useState(0)
 
+  const post = data.allWpPost.nodes
+  const randomIndex = Math.floor(Math.random() * post.length)
+  const randomPost = post[randomIndex]
 
-    const post = data.allWpPost.nodes
-    const randomIndex = Math.floor(Math.random() * post.length)
-    const randomPost = post[randomIndex]
+  const altText = randomPost?.featuredImage?.node?.altText
 
-    const altText = randomPost?.featuredImage?.node?.altText
+  const featuredImage = {
+    fluid: randomPost?.featuredImage?.node?.localFile?.childImageSharp.fluid,
+    alt: altText !== "" ? altText : randomPost?.title,
+  }
 
-    const featuredImage = {
-      fluid: randomPost?.featuredImage?.node?.localFile?.childImageSharp.fluid,
-      alt: altText !== "" ? altText : randomPost?.title,
-    }
-const handleClick = () => {
+  const handleClick = () => {
     setNewIndex(randomIndex)
-    }
+  }
 
   return (
     <IndexRandomContent>
       <div className="container">
         <div className="info">
-          <h2>Want something a little different?</h2>
+          <h2>Is life too predictable?</h2>
           <SurpriseButton onClick={() => handleClick()}>
             SURPRISE ME
           </SurpriseButton>
-          {newIndex > 0 && (<div className="info">
-          <h2>{randomPost.title}</h2>
-          <p>{parse(randomPost.excerpt)}</p>
-          <Link to={randomPost.uri} key={randomPost.id}>
-        —READ MORE
-        </Link>
-        <Image
-          fluid={featuredImage.fluid}
-          alt={featuredImage.alt}
-          style={{ width: "100%" }}
-          className="image"
-        />
-        </div>) 
-        
-        }
-         
         </div>
+        {newIndex > 0 && (
+          <div>
+            <h2>{randomPost.title}</h2>
+            <p>{parse(randomPost.excerpt)}</p>
+            {/* using <a> instead of <Link> to prevent rerenders on mouseover */}
+            <a href={randomPost.uri} key={randomPost.id}>
+              —READ MORE
+            </a> 
+            <Image
+              fluid={featuredImage.fluid}
+              alt={featuredImage.alt}
+              style={{ width: "100%" }}
+              className="image"
+            />
+          </div>
+        )}
       </div>
     </IndexRandomContent>
   )
