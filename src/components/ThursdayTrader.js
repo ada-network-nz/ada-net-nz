@@ -20,14 +20,14 @@ const ThursdayTrader = () => {
           <iframe
             src="/ThursdayTrader/index_thursday.html"
             title="thursday_trader"
-            style={{ width: "100vw", height: "80vh" }}
+            style={{ width: "100vw", height: "100vh" }}
           ></iframe>
         </div>
         <div className="info">
         <h4>—Featured Artist --- Ekare</h4>
         <h2>The Thursday Trader</h2>
           <Link to={data.wpPost.uri} key={data.wpPost.id}>
-            —LEARN MORE
+            —READ ON
           </Link>
         </div>
       </div>

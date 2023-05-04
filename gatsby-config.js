@@ -30,6 +30,7 @@ module.exports = {
         schema: {
           timeout: 400000,
         },
+        usePreviewMode: true,
       },
     },
 
