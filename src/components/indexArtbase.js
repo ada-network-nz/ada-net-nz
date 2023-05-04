@@ -7,8 +7,10 @@ import styled from "styled-components"
 
 const IndexArtbase = () => {
   const data = useStaticQuery(graphql`
-    {
-      wpPost(id: { eq: "cG9zdDo1Njg0" }) {
+  {
+      wpPost(
+      tags: { nodes: { elemMatch: { name: { eq: "featured artbase" } } } }
+      ) {
         id
         title
         excerpt
@@ -30,7 +32,7 @@ const IndexArtbase = () => {
     }
   `)
 
-  //   console.log(data.wpPost)
+//     console.log(data.wpPost)
 
   const altText = data.wpPost.featuredImage?.node?.altText
 
