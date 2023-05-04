@@ -1,6 +1,4 @@
 import React from "react"
-// import React, { useEffect } from "react"
-import { Link } from "gatsby"
 import styled from "styled-components"
 
 import Layout from "../components/layout"
@@ -10,34 +8,11 @@ import IndexLibrary from "../components/indexLibrary"
 import IndexEvent from "../components/indexEvent"
 import IndexArtbase from "../components/indexArtbase"
 
-// import ImgSymposium from "../assets/ada-sym-green.gif"
-import ImgSymposium from "../assets/ada-sym-22.jpg"
-
 const Home = () => {
-  //   useEffect(() => {
-  //     const symposiumVideo = document.getElementById("video")
-  //     const observer = new IntersectionObserver(
-  //       function (entries) {
-  //         if (entries[0].isIntersecting === true) symposiumVideo.play()
-  //       },
-  //       { threshold: [0] }
-  //     )
-
-  //     observer.observe(document.querySelector("#video"))
-  //   }, [])
 
   return (
     <Layout isHomePage>
       <Seo title="Homepage" />
-      <TempSymposium>
-        <div className="symposium-container">
-          <img src={ImgSymposium} alt="inderterminate infrastructures" />
-          <Link className="symposium-link" to="/tag/symposium2022/">
-            <h2>Learn more</h2>
-          </Link>
-        </div>
-      </TempSymposium>
-
       <IndexLibrary />
       <IndexEvent />
       <IndexArtbase />

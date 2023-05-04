@@ -7,8 +7,10 @@ import styled from "styled-components"
 
 const IndexLibrary = () => {
   const data = useStaticQuery(graphql`
-    {
-      wpPost(id: { eq: "cG9zdDo3MzE4" }) {
+  {
+      wpPost(
+      tags: { nodes: { elemMatch: { name: { eq: "featured publication" } } } }
+      ) {
         id
         title
         excerpt

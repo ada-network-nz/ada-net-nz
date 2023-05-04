@@ -7,8 +7,10 @@ import styled from "styled-components"
 
 const IndexEvent = () => {
   const data = useStaticQuery(graphql`
-    {
-      wpPost(id: { eq: "cG9zdDo4MTY1" }) {
+  {
+      wpPost(
+      tags: { nodes: { elemMatch: { name: { eq: "featured event" } } } }
+      ) {
         id
         title
         excerpt
@@ -29,6 +31,7 @@ const IndexEvent = () => {
       }
     }
   `)
+  
 
   //   console.log(data.wpPost)
 
