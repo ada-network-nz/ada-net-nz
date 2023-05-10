@@ -7,13 +7,19 @@ import styled from "styled-components"
 
 const IndexEvent = () => {
   const data = useStaticQuery(graphql`
-  {
+    {
       wpPost(
-      tags: { nodes: { elemMatch: { name: { eq: "featured event" } } } }
+        tags: { nodes: { elemMatch: { name: { eq: "featured event" } } } }
       ) {
         id
         title
         excerpt
+        date
+        tags {
+          nodes {
+            name
+          }
+        }
         uri
         excerpt
         featuredImage {
@@ -31,9 +37,7 @@ const IndexEvent = () => {
       }
     }
   `)
-  
 
-  //   console.log(data.wpPost)
 
   const altText = data.wpPost.featuredImage?.node?.altText
 
@@ -42,11 +46,28 @@ const IndexEvent = () => {
     alt: altText !== "" ? altText : data.wpPost.title,
   }
 
+  const renderEventTitle = () => {
+    const pastEventTag = data.wpPost.tags.nodes.find(
+      tag => tag.name === "Past Event"
+    )
+    const upcomingEventTag = data.wpPost.tags.nodes.find(
+      tag => tag.name === "Upcoming Event"
+    )
+
+    if (pastEventTag) {
+      return "Past Event"
+    } else if (upcomingEventTag) {
+      return "Upcoming Event"
+    } else {
+      return "Event"
+    }
+  }
+
   return (
     <IndexEventContent>
       <div className="container">
         <div className="info">
-          <h4>—Upcoming Event: 23 September</h4>
+          <h4>—{renderEventTitle()}</h4>
           <h2>{data.wpPost.title}</h2>
           <p>{parse(data.wpPost.excerpt)}</p>
           <Link to={data.wpPost.uri} key={data.wpPost.id}>
