@@ -5,11 +5,14 @@ import styled from "styled-components"
 
 const Tag = ({ data }) => {
   const tags = data.allWpTag.nodes
-    // const allTags = data.allWpTag.nodes
-  const [filteredTags, setFilteredTags] = useState(tags)
+  const categories = data.allWpCategory.nodes.map((category) => category.name)
+  console.log(categories)
+  const [selectedCategory, setSelectedCategory] = useState([])
   const [searchTerm, setSearchTerm] = useState("")
+  const [filteredTags, setFilteredTags] = useState(tags)
 
-  const handleSearch = (event) => {
+
+    const handleSearch = (event) => {
         const value = event.target.value
         setSearchTerm(value)
     
@@ -23,15 +26,26 @@ const Tag = ({ data }) => {
   return (
     <Layout>
       <SearchBar>
-         <input
-           type="text"
-           placeholder="SEARCH TAGS"
-           value={searchTerm}
-           onChange={handleSearch}
-         />
-       </SearchBar>
+        <input
+          type="text"
+          placeholder="Search tags"
+          value={searchTerm}
+          onChange={handleSearch}
+        />
+        <CategoryList>
+          {categories.map((category, index) => (
+            <CategoryBubble
+              key={index}
+              active={category === selectedCategory}
+              onClick={() => setSelectedCategory(category)}
+            >
+              {category}
+            </CategoryBubble>
+          ))}
+        </CategoryList>
+      </SearchBar>
       <TagsList>
-      {filteredTags.map((tag, index) => {
+        {filteredTags.map((tag, index) => {
           return (
             <Link to={tag.link} key={index}>
               {tag.name}
@@ -44,6 +58,9 @@ const Tag = ({ data }) => {
 }
 
 const SearchBar = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 1rem;
 
   input {
@@ -51,14 +68,25 @@ const SearchBar = styled.div`
     border-radius: 3px;
     padding: 0.5rem 0.8rem;
     font-size: 1.2rem;
-    background-color: black;
-    color: white;
-    ::placeholder {
-      color: #b8b8b8;
-      opacity: 1; /* Firefox */
-    }
+    flex-grow: 1;
   }
 `
+
+const CategoryList = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const CategoryBubble = styled.div`
+  border-radius: 20px;
+  background-color: ${({ active }) =>
+    active ? "var(--color-primary)" : "lightgrey"};
+  color: white;
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+`
+
 const TagsList = styled.section`
   background: black;
   display: grid;
@@ -66,7 +94,6 @@ const TagsList = styled.section`
   @media only screen and (min-width: 880px) {
     grid-template-columns: repeat(8, 1fr);
   }
-  /* gap: 1rem; */
 
   a {
     color: white;
@@ -85,6 +112,14 @@ const TagsList = styled.section`
 export const query = graphql`
   {
     allWpTag {
+      nodes {
+        name
+        link
+        id
+        slug
+      }
+    }
+    allWpCategory {
       nodes {
         name
         link
