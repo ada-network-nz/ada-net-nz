@@ -1,15 +1,37 @@
-import React from "react"
+import React, { useState } from "react"
 import Layout from "../components/layout"
 import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 
 const Tag = ({ data }) => {
   const tags = data.allWpTag.nodes
+    // const allTags = data.allWpTag.nodes
+  const [filteredTags, setFilteredTags] = useState(tags)
+  const [searchTerm, setSearchTerm] = useState("")
+
+  const handleSearch = (event) => {
+        const value = event.target.value
+        setSearchTerm(value)
+    
+        const filtered = tags.filter((tag) => {
+          return tag.name.toLowerCase().includes(value.toLowerCase())
+        })
+    
+        setFilteredTags(filtered)
+      }
 
   return (
     <Layout>
+      <SearchBar>
+         <input
+           type="text"
+           placeholder="SEARCH TAGS"
+           value={searchTerm}
+           onChange={handleSearch}
+         />
+       </SearchBar>
       <TagsList>
-        {tags.map((tag, index) => {
+      {filteredTags.map((tag, index) => {
           return (
             <Link to={tag.link} key={index}>
               {tag.name}
@@ -21,6 +43,22 @@ const Tag = ({ data }) => {
   )
 }
 
+const SearchBar = styled.div`
+  margin-bottom: 1rem;
+
+  input {
+    border: none;
+    border-radius: 3px;
+    padding: 0.5rem 0.8rem;
+    font-size: 1.2rem;
+    background-color: black;
+    color: white;
+    ::placeholder {
+      color: #b8b8b8;
+      opacity: 1; /* Firefox */
+    }
+  }
+`
 const TagsList = styled.section`
   background: black;
   display: grid;
