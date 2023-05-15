@@ -32,9 +32,11 @@ const ArtbaseIndex = ({
       <Seo title="Artbase" />
       <Artbase>
         {posts.map(post => {
-          const { title, excerpt, date, uri } = post
+          const { title, excerpt, date, uri, id } = post
 
           const { nodes: tags } = post.tags
+
+          console.log( post, 'post', post.id, 'post.id')
 
           const altText = post.featuredImage?.node?.altText
 
@@ -42,10 +44,15 @@ const ArtbaseIndex = ({
             fluid: post.featuredImage?.node?.localFile?.childImageSharp?.fluid,
             alt: altText !== "" ? altText : post.title,
           }
+// todo: thursday trader id should be cG9zdDo4NjMy - change before game merge
+
+          // if (post.id === "cG9zdDo4NjMy") link to /game instead of the uri
+          // so that the game embed shows up properly
+        
 
           return (
             <li key={uri}>
-              {featuredImage?.fluid && (
+              {featuredImage?.fluid && !post.id === "cG9zdDo4MzM1"(
                 <Link to={uri} itemProp="url">
                   <Image
                     fluid={featuredImage.fluid}
@@ -57,9 +64,16 @@ const ArtbaseIndex = ({
 
               <div className="artbase-info">
                 <h2>
-                  <Link to={uri} itemProp="url">
+                {post.id === "cG9zdDo4MzM1" ? (
+                    <Link to='/game/'>
                     <span itemProp="headline">{parse(title)}</span>
                   </Link>
+                  ) : (
+                    <Link to={uri} itemProp="url">
+                    <span itemProp="headline">{parse(title)}</span>
+                  </Link>
+                  )}
+                  
                 </h2>
 
                 <div itemProp="description" className="artbase-excerpt">
@@ -79,6 +93,7 @@ const ArtbaseIndex = ({
                 </div>
               </div>
             </li>
+                  
           )
         })}
       </Artbase>
@@ -211,6 +226,7 @@ export const pageQuery = graphql`
         uri
         date(formatString: "MMMM DD, YYYY")
         title
+        id
         tags {
           nodes {
             id

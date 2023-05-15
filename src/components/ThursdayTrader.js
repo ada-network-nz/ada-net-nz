@@ -8,9 +8,6 @@ const ThursdayTrader = () => {
       <div id="info">
         <h2>—Featured Artist --- Ekare</h2>
         <Link to="/game/" ><h3>---READ ON</h3></Link>
-        {/* <Link to={data.wpPost.uri} key={data.wpPost.id}>
-            —READ ON
-          </Link> */}
       </div>
       <div class="container">
         <div id="gameTable">

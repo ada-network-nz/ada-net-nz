@@ -6,7 +6,7 @@ import styled from "styled-components"
 
 const GameTemplate = ({ data }) => {
   const post = data.wpPost.content
-  console.log(post)
+  // console.log(post)
   return (
     <Layout>
         <GameTemplateContent>
@@ -27,9 +27,9 @@ const GameTemplate = ({ data }) => {
     </Layout>
   )
 }
-
+// thursday trader  query GetId($id: String = "cG9zdDo4NjMy")
 export const query = graphql`
-  query GetId($id: String = "cG9zdDo4NjMy") {
+  query GetId($id: String = "cG9zdDo4MzM1") {
     wpPost(id: { eq: $id }) {
       title
       id
