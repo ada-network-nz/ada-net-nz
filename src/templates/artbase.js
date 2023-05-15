@@ -52,7 +52,7 @@ const ArtbaseIndex = ({
 
           return (
             <li key={uri}>
-              {featuredImage?.fluid && !post.id === "cG9zdDo4MzM1"(
+              {featuredImage?.fluid && post.id !== "cG9zdDo4MzM1"(
                 <Link to={uri} itemProp="url">
                   <Image
                     fluid={featuredImage.fluid}

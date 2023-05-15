@@ -33,11 +33,11 @@ var Main = (function () {
   $(window).resize(function(){
     if (window.innerHeight > window.innerWidth) {
       //card + buttons
-      $(":button").css("font-size", "1vh");
-      $("p#cardInPlay").css("font-size", "1vh");
+      $(":button").css("font-size", "2vh");
+      $("p#cardInPlay").css("font-size", "2vh");
     } else {
-      $(":button").css("font-size", "1vw");
-      $("p#cardInPlay").css("font-size", "1vw");
+      $(":button").css("font-size", "2vw");
+      $("p#cardInPlay").css("font-size", "2vw");
     }
   });
 
@@ -253,9 +253,9 @@ var Main = (function () {
         pub.setup = function () {
           //are we portrait or landscape?
           if (window.innerHeight > window.innerWidth) {
-            $(":button").css("font-size", "1vh");
+            $(":button").css("font-size", "2vh");
           } else {
-            $(":button").css("font-size", "1vw");
+            $(":button").css("font-size", "2vw");
           }
           //Begin game
           $("#startHere").click(prepareGame);
