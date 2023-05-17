@@ -53,31 +53,22 @@ const Tag = ({ data }) => {
 
   return (
     <Layout>
-      <SearchBar>
-        <input
-          type="text"
-          placeholder="Search tags"
-          value={searchTerm}
-          onChange={handleSearch}
-        />
-        <CategoryList>
-          {categories.map((category, index) => (
-            <CategoryBubble
-              key={index}
-              active={selectedCategories.includes(category.name)}
-              onClick={() => handleCategoryClick(category.name)}
-            >
-              {category.name}
-            </CategoryBubble>
-          ))}
-        </CategoryList>
-      </SearchBar>
-      {selectedCategories.length ? (
+      <h1>Pick a Category</h1>
+      <CategoryList>
+        {categories.map((category, index) => (
+          <CategoryBubble
+            key={index}
+            active={selectedCategories.includes(category.name)}
+            onClick={() => handleCategoryClick(category.name)}
+          >
+            {category.name}
+          </CategoryBubble>
+        ))}
+      </CategoryList>
+      {selectedCategories.length && (
         <PostsList>
           {filteredPosts.map((post, index) => {
-            const { title, excerpt, date, uri } = post
-
-            const { nodes: tags } = post.tags
+            const { title, date, uri } = post
 
             const altText = post.featuredImage?.node?.altText
 
@@ -97,8 +88,7 @@ const Tag = ({ data }) => {
                       style={{ width: "100%" }}
                     />
                   </Link>
-                )
-                }
+                )}
 
                 <div className="artbase-info">
                   <h2>
@@ -107,28 +97,24 @@ const Tag = ({ data }) => {
                     </Link>
                   </h2>
                   <small className="artbase-date">{date}</small>
-
-                  {/* <div className="artbase-tags">
-                    {tags &&
-                      tags.map((tag, index) => {
-                        return (
-                          <Link
-                            to={tag.link}
-                            className="artbase-tag"
-                            key={index}
-                          >
-                            {tag.name} {index !== tags.length - 1}
-                          </Link>
-                        )
-                      })}
-                  </div> */}
                 </div>
               </li>
             )
           })}
         </PostsList>
-      ) : (
-        <TagsList>
+      )}
+      <h1>OR</h1> <br></br>
+      <br></br>
+      <h1>Search Tags</h1>
+      <SearchBar>
+        <input
+          type="text"
+          placeholder="Search tags"
+          value={searchTerm}
+          onChange={handleSearch}
+        />
+      </SearchBar>
+      <TagsList>
         {filteredTags.map((tag, index) => {
           return (
             <Link to={tag.link} key={index}>
@@ -137,7 +123,6 @@ const Tag = ({ data }) => {
           )
         })}
       </TagsList>
-      )}
     </Layout>
   )
 }
@@ -159,30 +144,9 @@ const SearchBar = styled.div`
 
 const CategoryList = styled.div`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 `
-// const PostsList = styled.div`
-// background: black;
-// display: grid;
-// grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-// @media only screen and (min-width: 880px) {
-//   grid-template-columns: repeat(8, 1fr);
-// }
-
-// a {
-//   color: white;
-//   background: black;
-//   text-transform: uppercase;
-//   padding: 0.8rem 1rem;
-//   transition: color 700ms, background 700ms;
-
-//   &:hover {
-//     color: black;
-//     background: var(--color-primary-light);
-//   }
-// }
-// `
-
 
 const PostsList = styled.div`
   display: grid;
@@ -218,8 +182,7 @@ const PostsList = styled.div`
   @media only screen and (min-width: 880px) {
     grid-template-columns: repeat(4, 1fr);
   }
-`;
-
+`
 
 const CategoryBubble = styled.div`
   border-radius: 20px;
