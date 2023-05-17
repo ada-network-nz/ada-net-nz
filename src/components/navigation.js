@@ -21,10 +21,6 @@ const Navigation = ({ isHomePage }) => {
             <span>ADA.NET.NZ</span>
           </NavLink>
 
-          <NavLink to="/tag/symposium2022/" onClick={() => setOpen(false)}>
-            <span>Symposium 22</span>
-          </NavLink>
-
           <NavLink
             // to={isHomePage ? "#content-home" : "/"}
             to="/artbase/"
@@ -66,13 +62,13 @@ const Navigation = ({ isHomePage }) => {
             <span>About</span>
           </NavLink>
 
-          <NavLink
+          {/* <NavLink
             to="/artbase/contribute/"
             activeClassName="nav-link--active"
             onClick={() => setOpen(false)}
           >
             <span>Contribute</span>
-          </NavLink>
+          </NavLink> */}
 
           <NavLinkExternal
             href="https://list.waikato.ac.nz/postorius/lists/ada_list.list.waikato.ac.nz/"
