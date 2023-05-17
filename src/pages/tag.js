@@ -54,6 +54,7 @@ const Tag = ({ data }) => {
   return (
     <Layout>
       <h1>Pick a Category</h1>
+      <h2>Yo Jay!</h2>
       <CategoryList>
         {categories.map((category, index) => (
           <CategoryBubble

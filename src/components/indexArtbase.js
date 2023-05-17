@@ -54,9 +54,9 @@ const IndexArtbase = () => {
           <h2>{data.wpPost.title}</h2>
           <p>{parse(data.wpPost.excerpt)}</p>
           <Link to={data.wpPost.uri} key={data.wpPost.id}>
-            —READ ON
+            READ ON
           </Link>
-          <Link to="/artbase/">—EXPLORE ARTBASE</Link>
+          <Link to="/artbase/">EXPLORE ARTBASE</Link>
         </div>
       </div>
     </IndexArtbaseContent>

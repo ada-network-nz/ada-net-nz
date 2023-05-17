@@ -146,6 +146,7 @@ const SurpriseButton = styled.button`
     border: 1px solid #e5f950;
     box-shadow: 6px 6px 0 #e5f950;
     border-radius: 2rem;
+    pointer: cursor;
 
     &:hover {
       color: black;
