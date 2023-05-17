@@ -53,7 +53,7 @@ const Tag = ({ data }) => {
 
   return (
     <Layout>
-      <h1>Pick a Category</h1>
+      <br></br><h1>Pick a Category</h1><br></br>
       <CategoryList>
         {categories.map((category, index) => (
           <CategoryBubble
@@ -103,16 +103,16 @@ const Tag = ({ data }) => {
           })}
         </PostsList>
       )}
-      <h1>OR</h1> <br></br>
+      <h1>OR</h1> 
       <br></br>
-      <h1>Search Tags</h1>
-      <SearchBar>
+      
+      <SearchBar><h1>Search Tags</h1>
         <input
           type="text"
           placeholder="Search tags"
           value={searchTerm}
           onChange={handleSearch}
-        />
+        /><br></br>
       </SearchBar>
       <TagsList>
         {filteredTags.map((tag, index) => {
@@ -134,9 +134,10 @@ const SearchBar = styled.div`
   margin-bottom: 1rem;
 
   input {
-    border: none;
+    border: 1px solid grey;
     border-radius: 3px;
     padding: 0.5rem 0.8rem;
+    margin: 2rem;
     font-size: 1.2rem;
     flex-grow: 1;
   }
@@ -189,9 +190,13 @@ const CategoryBubble = styled.div`
   background-color: ${({ active }) =>
     active ? "var(--color-primary)" : "grey"};
   color: white;
-  margin-left: 0.5rem;
+  margin: 0.5rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  &:hover {
+    color: black;
+    background: var(--color-primary-light);
+  }
 `
 
 const TagsList = styled.section`

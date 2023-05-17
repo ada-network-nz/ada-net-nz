@@ -51,6 +51,14 @@ const Navigation = ({ isHomePage }) => {
           </NavLink>
 
           <NavLink
+            to="/tag/"
+            onClick={() => setOpen(false)}
+            activeClassName="nav-link--active"
+          >
+            <span>Search</span>
+          </NavLink>
+
+          <NavLink
             to="/about/about-aotearoa-digital-arts/"
             activeClassName="nav-link--active"
             onClick={() => setOpen(false)}
