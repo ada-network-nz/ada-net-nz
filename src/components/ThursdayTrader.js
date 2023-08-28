@@ -7,7 +7,7 @@ const ThursdayTrader = () => {
     <ThursdayTraderContent>
       <div id="info">
         <h2>—Featured Artist --- Ekare</h2>
-        <Link to="/game/" ><h3>---READ ON</h3></Link>
+        <Link to="/thursday-trader/" ><h3>---READ ON</h3></Link>
       </div>
       <div class="container">
         <div id="gameTable">

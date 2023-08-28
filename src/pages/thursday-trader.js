@@ -29,7 +29,7 @@ const GameTemplate = ({ data }) => {
 }
 // thursday trader  query GetId($id: String = "cG9zdDo4NjMy")
 export const query = graphql`
-  query GetId($id: String = "cG9zdDo4MzM1") {
+  query GetId($id: String = "cG9zdDo4NjMy") {
     wpPost(id: { eq: $id }) {
       title
       id

@@ -32,11 +32,13 @@ const ArtbaseIndex = ({
       <Seo title="Artbase" />
       <Artbase>
         {posts.map(post => {
-          const { title, excerpt, date, uri, id } = post
+          const { title, excerpt, date, uri } = post
 
           const { nodes: tags } = post.tags
 
-          console.log( post, 'post', post.id, 'post.id')
+          const { id } = post.id
+
+          console.log(post, "post", post.id, "post.id")
 
           const altText = post.featuredImage?.node?.altText
 
@@ -44,36 +46,50 @@ const ArtbaseIndex = ({
             fluid: post.featuredImage?.node?.localFile?.childImageSharp?.fluid,
             alt: altText !== "" ? altText : post.title,
           }
-// todo: thursday trader id should be cG9zdDo4NjMy - change before game merge
 
-          // if (post.id === "cG9zdDo4NjMy") link to /game instead of the uri
-          // so that the game embed shows up properly
-        
+          // if (post.id === "cG9zdDo4NjMy") link to /thursday-trader instead of the uri
+          // so that the game embed shows up properly. We weren't able to embed the game directly in the wp post
+          
+          //conditionals need optimising
 
           return (
             <li key={uri}>
-              {featuredImage?.fluid && post.id !== "cG9zdDo4MzM1"(
-                <Link to={uri} itemProp="url">
-                  <Image
-                    fluid={featuredImage.fluid}
-                    alt={featuredImage.alt}
-                    style={{ width: "100%" }}
-                  />
-                </Link>
-              )}
+              {featuredImage?.fluid &&
+                post.id !==
+                  "cG9zdDo4NjMy" &&
+                  (
+                    <Link to={uri} itemProp="url">
+                      <Image
+                        fluid={featuredImage.fluid}
+                        alt={featuredImage.alt}
+                        style={{ width: "100%" }}
+                      />
+                    </Link>
+                  )}
+                  {featuredImage?.fluid &&
+                post.id ===
+                  "cG9zdDo4NjMy" &&
+                  (
+                    <Link to={uri} itemProp="url">
+                      <Image
+                        fluid={featuredImage.fluid}
+                        alt={featuredImage.alt}
+                        style={{ width: "100%" }}
+                      />
+                    </Link>
+                  )}
 
               <div className="artbase-info">
                 <h2>
-                {post.id === "cG9zdDo4MzM1" ? (
-                    <Link to='/game/'>
-                    <span itemProp="headline">{parse(title)}</span>
-                  </Link>
+                  {post.id === "cG9zdDo4NjMy" ? (
+                    <Link to="/thursday-trader/">
+                      <span itemProp="headline">{parse(title)}</span>
+                    </Link>
                   ) : (
                     <Link to={uri} itemProp="url">
-                    <span itemProp="headline">{parse(title)}</span>
-                  </Link>
+                      <span itemProp="headline">{parse(title)}</span>
+                    </Link>
                   )}
-                  
                 </h2>
 
                 <div itemProp="description" className="artbase-excerpt">
@@ -93,7 +109,6 @@ const ArtbaseIndex = ({
                 </div>
               </div>
             </li>
-                  
           )
         })}
       </Artbase>
