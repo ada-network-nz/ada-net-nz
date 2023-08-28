@@ -8,19 +8,28 @@ const ThursdayTrader = () => {
     <ThursdayTraderContent>
       <div id="info">
         <h2>—Featured Artist --- Ekare</h2>
-        <Link to="/thursday-trader/" ><h3>---READ ON</h3></Link>
+        <Link to="/thursday-trader/">
+          <h3>---READ ON</h3>
+        </Link>
       </div>
-      <div class="container">
-      <img className="temp-thursday-image" src={TempThursdayImage} alt="the thursday trader title image" />
-        {/* must solve x-frames issue */}
-        {/* <div id="gameTable">
+
+      <Link to="/thursday-trader/">
+        <div class="container">
+          <img
+            className="temp-thursday-image"
+            src={TempThursdayImage}
+            alt="the thursday trader title image"
+          />
+        </div>
+      </Link>
+      {/* must solve x-frames issue */}
+      {/* <div id="gameTable">
           <iframe
             src="/ThursdayTrader/index_thursday.html"
             title="thursday_trader"
             style={{ width: "100vw", height: "100vh" }}
           ></iframe>
         </div> */}
-      </div>
     </ThursdayTraderContent>
   )
 }
@@ -42,20 +51,19 @@ const ThursdayTraderContent = styled.section`
     color: black;
     display: grid;
     min-height: 70vh;
-    width:100%;
+    width: 100%;
     display: flex;
 
     @media screen and (min-width: 940px) {
       grid-template-columns: 1fr 1fr;
     }
-    .temp-thursday-image{
+    .temp-thursday-image {
       width: 100%;
     }
   }
-    #info {
-      padding: 1rem 15% 1rem;
-      display: flex;
-      flex-direction: column;
-    }
-  
+  #info {
+    padding: 1rem 15% 1rem;
+    display: flex;
+    flex-direction: column;
+  }
 `
