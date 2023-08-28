@@ -7,6 +7,7 @@ import IndexLibrary from "../components/indexLibrary"
 import IndexEvent from "../components/indexEvent"
 import IndexArtbase from "../components/indexArtbase"
 import ThursdayTrader from "../components/ThursdayTrader"
+import IndexRandom from "../components/indexRandom"
 
 const Home = () => {
 
@@ -17,6 +18,7 @@ const Home = () => {
       <IndexLibrary />
       <IndexEvent />
       <IndexArtbase />
+      <IndexRandom />
     </Layout>
   )
 }

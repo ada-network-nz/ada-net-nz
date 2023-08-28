@@ -30,6 +30,9 @@ const ArtbaseIndex = ({
   return (
     <Layout>
       <Seo title="Artbase" />
+      <Title>
+        <h1>Artbase</h1>
+      </Title>
       <Artbase>
         {posts.map(post => {
           const { title, excerpt, date, uri } = post
@@ -122,6 +125,15 @@ const ArtbaseIndex = ({
 }
 
 export default ArtbaseIndex
+
+const Title = styled.div`
+  background: black;
+  padding: 1rem;
+
+  h1 {
+    color: var(--color-primary);
+  }
+`
 
 const Artbase = styled.ol`
   list-style: none;

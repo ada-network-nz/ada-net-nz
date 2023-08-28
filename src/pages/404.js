@@ -12,7 +12,7 @@ const NotFoundPage = ({ data, location }) => {
       <Seo title="404: Not Found" />
       <h1>404: Not Found</h1>
       <p>
-        Please bear with us while we migrate the ada network to a new webiste!
+        Please bear with us while we migrate the ada network to a new website!
       </p>
     </Layout>
   )
