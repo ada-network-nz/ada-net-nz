@@ -12,11 +12,14 @@ const GameTemplate = ({ data }) => {
         <GameTemplateContent>
       <div>
       <h2>{data.wpPost.title}</h2>
-        <iframe
+      {/* temporary revert, must solve x-frames issue
+      
+      */}
+        {/* <iframe
           src="/ThursdayTrader/index_thursday.html"
           title="thursday_trader"
           style={{ width: "100vw", height: "70vh" }}
-        ></iframe>
+        ></iframe> */}
         <div className="container">
         <div className="content">
         <p>{parse(data.wpPost.content)}</p>

@@ -8,16 +8,17 @@ const ThursdayTrader = () => {
       <div id="info">
         <h2>—Featured Artist --- Ekare</h2>
         <Link to="/thursday-trader/" ><h3>---READ ON</h3></Link>
-      </div>
-      <div class="container">
-        <div id="gameTable">
+      {/* </div>
+      <div class="container"> */}
+        {/* must solve x-frames issue */}
+        {/* <div id="gameTable">
           <iframe
             src="/ThursdayTrader/index_thursday.html"
             target="_parent"
             title="thursday_trader"
             style={{ width: "100vw", height: "100vh" }}
           ></iframe>
-        </div>
+        </div> */}
       </div>
     </ThursdayTraderContent>
   )
