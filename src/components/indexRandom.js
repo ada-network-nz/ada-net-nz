@@ -78,7 +78,7 @@ const IndexRandom = () => {
           </div>
         ) : (
           <div className="surprise">
-            <h2>Is life too predictable?</h2>
+            <h2>Generate random post</h2>
             <SurpriseButton onClick={() => handleClick()}>
               SURPRISE ME
             </SurpriseButton>

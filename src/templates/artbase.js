@@ -41,8 +41,6 @@ const ArtbaseIndex = ({
 
           const { id } = post.id
 
-          console.log(post, "post", post.id, "post.id")
-
           const altText = post.featuredImage?.node?.altText
 
           const featuredImage = {

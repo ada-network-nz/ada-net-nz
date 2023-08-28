@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import parse from "html-react-parser"
 import styled from "styled-components"
 
+
 const GameTemplate = ({ data }) => {
   const post = data.wpPost.content
   // console.log(post)
