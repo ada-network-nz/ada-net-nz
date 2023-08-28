@@ -39,6 +39,10 @@ const ArtbaseIndex = ({
 
           const { nodes: tags } = post.tags
 
+          const { id } = post.id
+
+          console.log(post, "post", post.id, "post.id")
+
           const altText = post.featuredImage?.node?.altText
 
           const featuredImage = {
@@ -46,23 +50,49 @@ const ArtbaseIndex = ({
             alt: altText !== "" ? altText : post.title,
           }
 
+          // if (post.id === "cG9zdDo4NjMy") link to /thursday-trader instead of the uri
+          // so that the game embed shows up properly. We weren't able to embed the game directly in the wp post
+          
+          //conditionals need optimising
+
           return (
             <li key={uri}>
-              {featuredImage?.fluid && (
-                <Link to={uri} itemProp="url">
-                  <Image
-                    fluid={featuredImage.fluid}
-                    alt={featuredImage.alt}
-                    style={{ width: "100%" }}
-                  />
-                </Link>
-              )}
+              {featuredImage?.fluid &&
+                post.id !==
+                  "cG9zdDo4NjMy" &&
+                  (
+                    <Link to={uri} itemProp="url">
+                      <Image
+                        fluid={featuredImage.fluid}
+                        alt={featuredImage.alt}
+                        style={{ width: "100%" }}
+                      />
+                    </Link>
+                  )}
+                  {featuredImage?.fluid &&
+                post.id ===
+                  "cG9zdDo4NjMy" &&
+                  (
+                    <Link to={uri} itemProp="url">
+                      <Image
+                        fluid={featuredImage.fluid}
+                        alt={featuredImage.alt}
+                        style={{ width: "100%" }}
+                      />
+                    </Link>
+                  )}
 
               <div className="artbase-info">
                 <h2>
-                  <Link to={uri} itemProp="url">
-                    <span itemProp="headline">{parse(title)}</span>
-                  </Link>
+                  {post.id === "cG9zdDo4NjMy" ? (
+                    <Link to="/thursday-trader/">
+                      <span itemProp="headline">{parse(title)}</span>
+                    </Link>
+                  ) : (
+                    <Link to={uri} itemProp="url">
+                      <span itemProp="headline">{parse(title)}</span>
+                    </Link>
+                  )}
                 </h2>
 
                 <div itemProp="description" className="artbase-excerpt">
@@ -223,6 +253,7 @@ export const pageQuery = graphql`
         uri
         date(formatString: "MMMM DD, YYYY")
         title
+        id
         tags {
           nodes {
             id
