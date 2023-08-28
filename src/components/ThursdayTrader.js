@@ -13,6 +13,7 @@ const ThursdayTrader = () => {
         <div id="gameTable">
           <iframe
             src="/ThursdayTrader/index_thursday.html"
+            target="_parent"
             title="thursday_trader"
             style={{ width: "100vw", height: "100vh" }}
           ></iframe>
