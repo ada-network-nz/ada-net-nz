@@ -23,6 +23,7 @@ const ThursdayTrader = () => {
         </div>
       </Link>
       {/* must solve x-frames issue */}
+      {/* surely I don't need an iframe if I'm hosting all the code */}
       {/* <div id="gameTable">
           <iframe
             src="/ThursdayTrader/index_thursday.html"
