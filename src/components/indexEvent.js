@@ -39,12 +39,12 @@ const IndexEvent = () => {
   `)
 
 
-  // const altText = data.wpPost.featuredImage?.node?.altText
+  const altText = data.wpPost.featuredImage?.node?.altText
 
-  // const featuredImage = {
-  //   fluid: data.wpPost.featuredImage?.node?.localFile?.childImageSharp.fluid,
-  //   alt: altText !== "" ? altText : data.wpPost.title,
-  // }
+  const featuredImage = {
+    fluid: data.wpPost.featuredImage?.node?.localFile?.childImageSharp.fluid,
+    alt: altText !== "" ? altText : data.wpPost.title,
+  }
 
   const renderEventTitle = () => {
     const pastEventTag = data.wpPost.tags.nodes.find(
@@ -75,12 +75,12 @@ const IndexEvent = () => {
           </Link>
           <Link to="/events/">—OTHER EVENTS</Link>
         </div>
-        {/* <Image
+        <Image
           fluid={featuredImage.fluid}
           alt={featuredImage.alt}
           style={{ width: "100%" }}
           className="image"
-        /> */}
+        />
       </div>
     </IndexEventContent>
   )
