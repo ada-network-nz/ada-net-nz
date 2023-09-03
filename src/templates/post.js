@@ -46,7 +46,7 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
 
           <div className="hero-content">
             <Link href="#content">
-              {/* <h1 itemProp="headline">{parse(post.title)}</h1> */}
+              <h1 itemProp="headline">{parse(post.title)}</h1>
             </Link>
             {tags &&
               tags.map((tag, index) => {
@@ -62,8 +62,8 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
         </header>
 
         {!!post.content && (
-          <section itemProp="articleBody" id="content"> content
-            {/* {parse(post.content)} */}
+          <section itemProp="articleBody" id="content">
+            {parse(post.content)}
           </section>
         )}
       </Post>
@@ -72,16 +72,16 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
         <ul>
           <li>
             {previous && (
-              <Link to={previous.uri} rel="prev"> prev
-                {/* ⇐ {parse(previous.title)} */}
+              <Link to={previous.uri} rel="prev">
+                ⇐ {parse(previous.title)}
               </Link>
             )}
           </li>
 
           <li>
             {next && (
-              <Link to={next.uri} rel="next"> next
-                {/* {parse(next.title)} ⇒ */}
+              <Link to={next.uri} rel="next">
+                {parse(next.title)} ⇒
               </Link>
             )}
           </li>

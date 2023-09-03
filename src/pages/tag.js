@@ -97,8 +97,8 @@ const Tag = ({ data }) => {
 
                 <div className="artbase-info">
                   <h2>
-                    <Link to={uri} itemProp="url"> link
-                      {/* <span itemProp="headline">{parse(title)}</span> */}
+                    <Link to={uri} itemProp="url">
+                      <span itemProp="headline">{parse(title)}</span>
                     </Link>
                   </h2>
                   <small className="artbase-date">{date}</small>

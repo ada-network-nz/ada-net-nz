@@ -62,7 +62,7 @@ const IndexRandom = () => {
             </div>
             <div>
               <h2>{randomPost.title}</h2>
-              {/* <p>{parse(randomPost.excerpt)}</p> */}
+              <p>{parse(randomPost.excerpt)}</p>
               {/* using <a> instead of <Link> to prevent rerenders on mouseover */}
               <a href={randomPost.uri} key={randomPost.id}>
                 —READ ON
