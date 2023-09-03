@@ -34,12 +34,12 @@ const IndexLibrary = () => {
 
   //   console.log(data.wpPost)
 
-  const altText = data.wpPost.featuredImage?.node?.altText
+  // const altText = data.wpPost.featuredImage?.node?.altText
 
-  const featuredImage = {
-    fluid: data.wpPost.featuredImage?.node?.localFile?.childImageSharp.fluid,
-    alt: altText !== "" ? altText : data.wpPost.title,
-  }
+  // const featuredImage = {
+  //   fluid: data.wpPost.featuredImage?.node?.localFile?.childImageSharp.fluid,
+  //   alt: altText !== "" ? altText : data.wpPost.title,
+  // }
 
   return (
     <IndexLibraryContent>
