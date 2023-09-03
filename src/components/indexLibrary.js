@@ -44,19 +44,19 @@ const IndexLibrary = () => {
   return (
     <IndexLibraryContent>
       <div className="container">
-        <Image
+        {/* <Image
           fluid={featuredImage.fluid}
           alt={featuredImage.alt}
           style={{ width: "100%" }}
-        />
+        /> */}
 
         <div className="info">
           <h4>—Latest Publication</h4>
-          <h2>{data.wpPost.title}</h2>
+          {/* <h2>{data.wpPost.title}</h2>
           <p>{parse(data.wpPost.excerpt)}</p>
           <Link to={data.wpPost.uri} key={data.wpPost.id}>
             —READ ON
-          </Link>
+          </Link> */}
           <Link to="/library/">—EXPLORE LIBRARY</Link>
         </div>
       </div>
