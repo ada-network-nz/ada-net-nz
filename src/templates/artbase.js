@@ -81,7 +81,7 @@ const ArtbaseIndex = ({
                   )}
 
               <div className="artbase-info">
-                <h2>
+                {/* <h2>
                   {post.id === "cG9zdDo4NjMy" ? (
                     <Link to="/thursday-trader/">
                       <span itemProp="headline">{parse(title)}</span>
@@ -91,10 +91,10 @@ const ArtbaseIndex = ({
                       <span itemProp="headline">{parse(title)}</span>
                     </Link>
                   )}
-                </h2>
+                </h2> */}
 
                 <div itemProp="description" className="artbase-excerpt">
-                  {parse(excerpt)}
+                  {/* {parse(excerpt)} */}
                 </div>
                 <small className="artbase-date">{date}</small>
 

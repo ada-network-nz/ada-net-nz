@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
-import parse from "html-react-parser"
+// import parse from "html-react-parser"
 import styled from "styled-components"
 
 const IndexArtbase = () => {
@@ -52,7 +52,7 @@ const IndexArtbase = () => {
         <div className="info">
           <h4>—Featured from the Artbase</h4>
           <h2>{data.wpPost.title}</h2>
-          <p>{parse(data.wpPost.excerpt)}</p>
+          {/* <p>{parse(data.wpPost.excerpt)}</p> */}
           <Link to={data.wpPost.uri} key={data.wpPost.id}>
             —READ ON
           </Link>
