@@ -34,21 +34,21 @@ const IndexArtbase = () => {
 
 //     console.log(data.wpPost)
 
-  const altText = data.wpPost.featuredImage?.node?.altText
+  // const altText = data.wpPost.featuredImage?.node?.altText
 
-  const featuredImage = {
-    fluid: data.wpPost.featuredImage?.node?.localFile?.childImageSharp.fluid,
-    alt: altText !== "" ? altText : data.wpPost.title,
-  }
+  // const featuredImage = {
+  //   fluid: data.wpPost.featuredImage?.node?.localFile?.childImageSharp.fluid,
+  //   alt: altText !== "" ? altText : data.wpPost.title,
+  // }
 
   return (
     <IndexArtbaseContent>
       <div className="container">
-        <Image
+        {/* <Image
           fluid={featuredImage.fluid}
           alt={featuredImage.alt}
           style={{ width: "100%" }}
-        />
+        /> */}
         <div className="info">
           <h4>—Featured from the Artbase</h4>
           <h2>{data.wpPost.title}</h2>

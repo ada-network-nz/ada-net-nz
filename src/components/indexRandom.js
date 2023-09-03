@@ -38,12 +38,12 @@ const IndexRandom = () => {
   const randomIndex = Math.floor(Math.random() * post.length)
   const randomPost = post[randomIndex]
 
-  const altText = randomPost?.featuredImage?.node?.altText
+  // const altText = randomPost?.featuredImage?.node?.altText
 
-  const featuredImage = {
-    fluid: randomPost?.featuredImage?.node?.localFile?.childImageSharp.fluid,
-    alt: altText !== "" ? altText : randomPost?.title,
-  }
+  // const featuredImage = {
+  //   fluid: randomPost?.featuredImage?.node?.localFile?.childImageSharp.fluid,
+  //   alt: altText !== "" ? altText : randomPost?.title,
+  // }
 
   const handleClick = () => {
     setNewIndex(randomIndex)
@@ -68,12 +68,12 @@ const IndexRandom = () => {
                 —READ ON
               </a>
               <br />
-              <Image
+              {/* <Image
                 fluid={featuredImage.fluid}
                 alt={featuredImage.alt}
                 style={{ width: "100%" }}
                 className="image"
-              />
+              /> */}
             </div>
           </div>
         ) : (
