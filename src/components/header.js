@@ -1,7 +1,5 @@
 import React from "react"
-// import Link from "gatsby"
 import styled from "styled-components"
-// import parse from "html-react-parser"
 
 import bg from "../assets/ada-hero.jpg"
 

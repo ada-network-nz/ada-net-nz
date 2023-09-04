@@ -1,33 +1,37 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Helmet from "react-helmet"
 import Layout from "../components/layout"
 import parse from "html-react-parser"
 import styled from "styled-components"
 
-
 const GameTemplate = ({ data }) => {
   const post = data.wpPost.content
-  // console.log(post)
+
   return (
     <Layout>
-        <GameTemplateContent>
-      <div>
-      <h2>{data.wpPost.title}</h2>
-      {/* temporary revert, must solve x-frames issue
-      
-      */}
-        <iframe
-          src="/ThursdayTrader/index_thursday.html"
-          title="thursday_trader"
-          style={{ width: "100vw", height: "70vh" }}
-        ></iframe>
-        <div className="container">
-        <div className="content">
-        <p>{parse(data.wpPost.content)}</p>
+      <GameTemplateContent>
+        <Helmet>
+          <script
+            src="/ThursdayTrader/x-frame-bypass.js"
+            type="module"
+          ></script>
+        </Helmet>
+        <div>
+          <h2>{data.wpPost.title}</h2>
+          <iframe
+            is="x-frame-bypass"
+            src="/ThursdayTrader/index_thursday.html"
+            title="thursday_trader"
+            style={{ width: "100vw", height: "70vh" }}
+          ></iframe>
+          <div className="container">
+            <div className="content">
+              <p>{parse(data.wpPost.content)}</p>
+            </div>
+          </div>
         </div>
-        </div>
-      </div>
-        </GameTemplateContent>
+      </GameTemplateContent>
     </Layout>
   )
 }
@@ -54,23 +58,19 @@ const GameTemplateContent = styled.section`
   .container {
     color: black;
     display: flex;
-    align-content: center; 
+    align-content: center;
     justify-content: center;
     min-height: 100vh;
 
     .content {
-        padding: 1rem 20% 4rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    min-width: 60vw;
+      padding: 1rem 20% 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-width: 60vw;
     }
-
   }
-
-  
 `
 
 export default GameTemplate
-
