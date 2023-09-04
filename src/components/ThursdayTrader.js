@@ -8,6 +8,7 @@ const ThursdayTrader = () => {
     <ThursdayTraderContent>
       <Helmet>
         <script src="/ThursdayTrader/x-frame-bypass.js" type="module"></script>
+        <script src="//unpkg.com/@ungap/custom-elements"></script>
       </Helmet>
       <div id="info">
         <h2>—Featured Artist --- Ekare</h2>

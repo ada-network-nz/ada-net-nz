@@ -16,6 +16,7 @@ const GameTemplate = ({ data }) => {
             src="/ThursdayTrader/x-frame-bypass.js"
             type="module"
           ></script>
+          <script src="//unpkg.com/@ungap/custom-elements"></script>
         </Helmet>
         <div>
           <h2>{data.wpPost.title}</h2>
