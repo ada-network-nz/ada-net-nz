@@ -1,17 +1,29 @@
 import React from "react"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import parse from "html-react-parser"
 import styled from "styled-components"
 
 
-const GameTemplate = () => {
-
+const GameTemplate = ({ data }) => {
+  const post = data.wpPost.content
+  // console.log(post)
   return (
     <Layout>
         <GameTemplateContent>
       <div>
+      <h2>{data.wpPost.title}</h2>
+      {/* temporary revert, must solve x-frames issue
+      
+      */}
+        <iframe
+          src="/ThursdayTrader/index_thursday.html"
+          title="thursday_trader"
+          style={{ width: "100vw", height: "70vh" }}
+        ></iframe>
         <div className="container">
         <div className="content">
-        <p>hello world</p>
+        <p>{parse(data.wpPost.content)}</p>
         </div>
         </div>
       </div>
@@ -19,6 +31,17 @@ const GameTemplate = () => {
     </Layout>
   )
 }
+// thursday trader  query GetId($id: String = "cG9zdDo4NjMy")
+export const query = graphql`
+  query GetId($id: String = "cG9zdDo4NjMy") {
+    wpPost(id: { eq: $id }) {
+      title
+      id
+      content
+      date(formatString: "MMMM DD, YYYY")
+    }
+  }
+`
 
 const GameTemplateContent = styled.section`
   h2 {
