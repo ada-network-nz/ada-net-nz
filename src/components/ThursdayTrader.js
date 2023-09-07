@@ -11,7 +11,7 @@ const ThursdayTrader = () => {
         <script src="//unpkg.com/@ungap/custom-elements"></script>
       </Helmet>
       <div id="info">
-        <h2>—Featured Artist --- Ekare</h2>
+        <h2>—Featured Artist --- E-Kare</h2>
         <Link to="/thursday-trader/">
           <h3>---READ ON</h3>
         </Link>
