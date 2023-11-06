@@ -50,6 +50,8 @@ const Tag = ({ data }) => {
       setSelectedCategories([...selectedCategories, category])
     }
   }
+  // in the future, we would like a better way embed the thursday trader game in the post, so we don't have
+  // to do this weird conditional routing everywhere
   const gameLink = "/thursday-trader"
   return (
     <Layout>
