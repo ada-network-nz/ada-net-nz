@@ -62,21 +62,21 @@ const Navigation = ({ isHomePage }) => {
             <span>About</span>
           </NavLink>
 
-          {/* <NavLink
-            to="/artbase/contribute/"
+          <NavLink
+            to="/subscribe/"
             activeClassName="nav-link--active"
             onClick={() => setOpen(false)}
           >
-            <span>Contribute</span>
-          </NavLink> */}
+            <span>Subscribe</span>
+          </NavLink>
 
-          <NavLinkExternal
+          {/* <NavLinkExternal
             href="https://list.waikato.ac.nz/postorius/lists/ada_list.list.waikato.ac.nz/"
             target="_blank"
             rel="noreferrer"
           >
             <span>Subscribe ⇨</span>
-          </NavLinkExternal>
+          </NavLinkExternal> */}
         </NavWrapper>
       </Nav>
     </>
