@@ -55,9 +55,9 @@ const IndexLibrary = () => {
           <h2>{data.wpPost.title}</h2>
           <p>{parse(data.wpPost.excerpt)}</p>
           <Link to={data.wpPost.uri} key={data.wpPost.id}>
-            —READ ON
+            <CTA>—READ ON</CTA>
           </Link>
-          <Link to="/library/">—EXPLORE LIBRARY</Link>
+          <Link to="/library/"><CTA>—EXPLORE LIBRARY</CTA></Link>
         </div>
       </div>
     </IndexLibraryContent>
@@ -78,6 +78,7 @@ const IndexLibraryContent = styled.section`
     color: black;
     display: grid;
     min-height: 100vh;
+    border-bottom: 2px solid #859508;
 
     @media screen and (min-width: 940px) {
       grid-template-columns: 1fr 1fr;
@@ -94,5 +95,24 @@ const IndexLibraryContent = styled.section`
 
   .img-container {
     height: 100%;
+  }
+`
+const CTA = styled.button`
+   {
+    font-size: 1rem;
+    display: flex;
+    background: black;
+    padding: 0.2rem 0.8rem;
+    text-align: center;
+    color: #e5f950;
+    border: 1px solid #e5f950;
+    box-shadow: 4px 4px 0 #e5f950;
+    border-radius: 1rem;
+    margin-bottom: 10px;
+
+    &:hover {
+      color: black;
+      background-color: #859508;
+    }
   }
 `

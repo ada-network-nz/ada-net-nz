@@ -60,6 +60,7 @@ const HeaderContainer = styled.header`
       border: 1px solid #e5f950;
       box-shadow: 6px 6px 0 #e5f950;
       border-radius: 2rem;
+      margin-bottom: 10px;
 
       @media screen and (min-width: 940px) {
         font-size: 2rem;

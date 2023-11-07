@@ -38,7 +38,6 @@ const IndexEvent = () => {
     }
   `)
 
-
   const altText = data.wpPost.featuredImage?.node?.altText
 
   const featuredImage = {
@@ -71,9 +70,11 @@ const IndexEvent = () => {
           <h2>{data.wpPost.title}</h2>
           <p>{parse(data.wpPost.excerpt)}</p>
           <Link to={data.wpPost.uri} key={data.wpPost.id}>
-            —LEARN MORE
+            <CTA>—LEARN MORE</CTA>
           </Link>
-          <Link to="/events/">—OTHER EVENTS</Link>
+          <Link to="/events/">
+            <CTA>—OTHER EVENTS</CTA>
+          </Link>
         </div>
         <Image
           fluid={featuredImage.fluid}
@@ -101,6 +102,7 @@ const IndexEventContent = styled.section`
     display: grid;
     /* align-content: center; */
     min-height: 100vh;
+    border-bottom: 2px solid #859508;
 
     @media screen and (min-width: 940px) {
       grid-template-columns: 1fr 1fr;
@@ -119,6 +121,25 @@ const IndexEventContent = styled.section`
     grid-row: 1;
     @media screen and (min-width: 940px) {
       grid-row: unset;
+    }
+  }
+`
+const CTA = styled.button`
+   {
+    font-size: 1rem;
+    display: flex;
+    background: black;
+    padding: 0.2rem 0.8rem;
+    text-align: center;
+    color: #e5f950;
+    border: 1px solid #e5f950;
+    box-shadow: 4px 4px 0 #e5f950;
+    border-radius: 1rem;
+    margin-bottom: 10px;
+
+    &:hover {
+      color: black;
+      background-color: #859508;
     }
   }
 `

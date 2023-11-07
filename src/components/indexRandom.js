@@ -56,16 +56,18 @@ const IndexRandom = () => {
           <div className="container">
             <div className="info">
               <h2>What a thrill!</h2>
-              <SurpriseButton onClick={() => handleClick()}>
-                AGAIN!
-              </SurpriseButton>
+              <CTA onClick={() => handleClick()}>
+                Spin again
+              </CTA>
             </div>
             <div>
               <h2>{randomPost.title}</h2>
               <p>{parse(randomPost.excerpt)}</p>
               {/* using <a> instead of <Link> to prevent rerenders on mouseover */}
               <a href={randomPost.uri} key={randomPost.id}>
-                —READ ON
+                <CTA>
+                  --READ ON
+                </CTA>
               </a>
               <br />
               <Image
@@ -79,9 +81,9 @@ const IndexRandom = () => {
         ) : (
           <div className="surprise">
             <h2>Generate random post</h2>
-            <SurpriseButton onClick={() => handleClick()}>
+            <CTA onClick={() => handleClick()}>
               SURPRISE ME
-            </SurpriseButton>
+            </CTA>
           </div>
         )}
       </div>
@@ -103,7 +105,9 @@ const IndexRandomContent = styled.section`
     color: black;
     display: grid;
     /* align-content: center; */
-    min-height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    border-bottom: 2px solid #859508;
 
     @media screen and (min-width: 940px) {
       grid-template-columns: 1fr 1fr;
@@ -115,6 +119,15 @@ const IndexRandomContent = styled.section`
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
+      max-height: 100vh;
+    }
+
+    .image {
+      grid-row: 1;
+      max-height: 80vh;
+      @media screen and (min-width: 940px) {
+        grid-row: unset;
+      }
     }
   }
 
@@ -124,32 +137,26 @@ const IndexRandomContent = styled.section`
     justify-content: center;
     align-items: center;
     min-height: 60vh;
-    border: 5px solid #08fe2e;
-  }
-
-  .image {
-    grid-row: 1;
-    @media screen and (min-width: 940px) {
-      grid-row: unset;
-    }
+    border-bottom: 2px solid #859508;
   }
 `
 
-const SurpriseButton = styled.button`
+const CTA = styled.button`
    {
-    font-size: 2rem;
+    font-size: 1rem;
     display: flex;
     background: black;
-    padding: 0.4rem 1.6rem;
+    padding: 0.2rem 0.8rem;
     text-align: center;
     color: #e5f950;
     border: 1px solid #e5f950;
-    box-shadow: 6px 6px 0 #e5f950;
-    border-radius: 2rem;
+    box-shadow: 4px 4px 0 #e5f950;
+    border-radius: 1rem;
+    margin-bottom: 10px;
 
     &:hover {
       color: black;
-      background-color: #08fe2e;
+      background-color: #859508;
     }
   }
 `

@@ -6,7 +6,7 @@ import Seo from "../components/seo"
 import IndexLibrary from "../components/indexLibrary"
 import IndexEvent from "../components/indexEvent"
 import IndexArtbase from "../components/indexArtbase"
-import FeaturedExhibit from "../components/featuredExhibit"
+import FeaturedExhibit from "../components/indexFeaturedExhibit"
 import IndexRandom from "../components/indexRandom"
 
 const Home = () => {
