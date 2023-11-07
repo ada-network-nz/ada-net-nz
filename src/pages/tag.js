@@ -54,10 +54,10 @@ const Tag = ({ data }) => {
   return (
     <Layout>
       <Title>
-        <h1>Search</h1>
+        <Text>Search</Text>
       </Title>
       <br></br>
-      <h1>Pick a Category</h1>
+      <Text>Pick a Category</Text>
       <br></br>
       <CategoryList>
         {categories.map((category, index) => (
@@ -108,11 +108,11 @@ const Tag = ({ data }) => {
           })}
         </PostsList>
       )}
-      <h1>OR</h1>
+      <Text>OR</Text>
       <br></br>
 
       <SearchBar>
-        <h1>Search Tags</h1>
+        <Text>Search Tags</Text>
         <input
           type="text"
           placeholder="Search tags"
@@ -138,7 +138,7 @@ const Title = styled.div`
   background: black;
   padding: 1rem;
 
-  h1 {
+  Text {
     color: var(--color-primary);
   }
 `
@@ -236,6 +236,10 @@ const TagsList = styled.section`
     }
   }
 `
+const Text = styled.h1`
+padding-left: 0.2em;
+`
+
 export const query = graphql`
   {
     allWpTag {
