@@ -50,21 +50,14 @@ const FeaturedExhibit = () => {
       <div class="container">
         <html>
           <body>
+            <br />
             <iframe
               src="https://player.vimeo.com/video/879621293?h=14b0d660b3&color=dec78c"
-              style={{ width: "100vw", height: "70vh" }}
+              style={{ width: "100vw", height: "85vh" }}
               frameborder="0"
               allow="autoplay; fullscreen; picture-in-picture; gyroscope; accelerometer"
               allowfullscreen
             ></iframe>
-            <p style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <a href="https://vimeo.com/879621293">
-                Xi Li 李曦 - ↪︎I↩︎, 2023 [VR] [360&deg; video]
-              </a>
-              from <a href="https://vimeo.com/xili">Xi Li</a> on
-              <a href="https://vimeo.com">Vimeo</a>.
-            </p>
-
             <script src="https://player.vimeo.com/api/player.js"></script>
           </body>
         </html>
@@ -90,9 +83,8 @@ const Content = styled.section`
   .container {
     color: black;
     display: grid;
-    min-height: 80vh;
+    min-height: 60vh;
     border-bottom: 2px solid #859508;
-    padding-top: 10px;
 
     @media screen and (min-width: 940px) {
       grid-template-columns: 1fr 1fr;
