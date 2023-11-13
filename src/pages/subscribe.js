@@ -12,6 +12,7 @@ const Subscribe = ({ data }) => {
       <SubscribeTitle>
         <h1>ADA Mailing List</h1>
       </SubscribeTitle>
+      <iframe src='https://list.waikato.ac.nz/postorius/lists/ada_list.list.waikato.ac.nz/' />
       <NavLinkExternal
             href="https://list.waikato.ac.nz/postorius/lists/ada_list.list.waikato.ac.nz/"
             target="_blank"
