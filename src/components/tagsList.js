@@ -61,8 +61,10 @@ const TagsList = ({ name }) => {
               alt: featuredImage?.node?.altText || ``,
             }
 
+            const gameLink = '/thursday-trader' 
+
             return (
-              <Link to={uri} className="tag-list__post" key={id}>
+              <Link to={id === "cG9zdDo4NjMy" ? gameLink : uri} className="tag-list__post" key={id}>
                 {featuredImage && (
                   <Image
                     fluid={image.fluid}
@@ -73,9 +75,6 @@ const TagsList = ({ name }) => {
                 <div className="tag-list__post-info">
                   {title && <h2>{title}</h2>}
                   {date && <p>{date}</p>}
-                  {/* {excerpt && (
-                  <div dangerouslySetInnerHTML={{ __html: excerpt }} />
-                )} */}
                 </div>
               </Link>
             )
