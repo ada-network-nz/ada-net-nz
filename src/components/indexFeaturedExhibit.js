@@ -17,11 +17,11 @@ const FeaturedExhibit = () => {
         </Link>
       </div>
       <div class="container">
-        {/* <iframe ---------version in post - delete after merge
-          src="https://player.vimeo.com/video/883875650?h=0521838bdf&badge=0autopause=0quality_selector=1&player_id=0&app_id=58479"
-        ></iframe> */}
+       {/* ---------old version - works in local for testing
+              src="https://player.vimeo.com/video/879621293?h=14b0d660b3&color=dec78c" */}
         <iframe
-          src="https://player.vimeo.com/video/879621293?h=14b0d660b3&color=dec78c"
+       
+          src="https://player.vimeo.com/video/883875650?h=0521838bdf&badge=0autopause=0quality_selector=1&player_id=0&app_id=58479"
           style={{
             width: "100vw",
             height: "85vh",
@@ -34,14 +34,13 @@ const FeaturedExhibit = () => {
       </div>
       <div
           style={{
-            fontFamily: "math",
             fontSize: "1.5em",
             textAlign: "center",
             margin: "5px",
             borderBottom: "2px solid #859508"
           }}
         >
-          <p>Xi Li 李曦 - ↪︎I↩︎ (Within Web of Mask), 2023</p>
+          <p>Xi Li 李曦 - <span style={{fontFamily: "math",}}>↪︎I↩︎</span> (Within Web of Mask), 2023</p>
       
       </div>
       <script src="https://player.vimeo.com/api/player.js"></script>
