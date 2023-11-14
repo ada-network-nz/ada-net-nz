@@ -48,49 +48,22 @@ const ArtbaseIndex = ({
             alt: altText !== "" ? altText : post.title,
           }
 
-          // if (post.id === "cG9zdDo4NjMy") link to /thursday-trader instead of the uri
-          // so that the game embed shows up properly. We weren't able to embed the game directly in the wp post
-          
-          //conditionals need optimising
-
           return (
             <li key={uri}>
-              {featuredImage?.fluid &&
-                post.id !==
-                  "cG9zdDo4NjMy" &&
-                  (
-                    <Link to={uri} itemProp="url">
-                      <Image
-                        fluid={featuredImage.fluid}
-                        alt={featuredImage.alt}
-                        style={{ width: "100%" }}
-                      />
-                    </Link>
-                  )}
-                  {featuredImage?.fluid &&
-                post.id ===
-                  "cG9zdDo4NjMy" &&
-                  (
-                    <Link to="/thursday-trader/">
-                      <Image
-                        fluid={featuredImage.fluid}
-                        alt={featuredImage.alt}
-                        style={{ width: "100%" }}
-                      />
-                    </Link>
-                  )}
-
+              {featuredImage?.fluid && (
+                <Link to={uri} itemProp="url">
+                  <Image
+                    fluid={featuredImage.fluid}
+                    alt={featuredImage.alt}
+                    style={{ width: "100%" }}
+                  />
+                </Link>
+              )}
               <div className="artbase-info">
                 <h2>
-                  {post.id === "cG9zdDo4NjMy" ? (
-                    <Link to="/thursday-trader/">
-                      <span itemProp="headline">{parse(title)}</span>
-                    </Link>
-                  ) : (
-                    <Link to={uri} itemProp="url">
-                      <span itemProp="headline">{parse(title)}</span>
-                    </Link>
-                  )}
+                  <Link to={uri} itemProp="url">
+                    <span itemProp="headline">{parse(title)}</span>
+                  </Link>
                 </h2>
 
                 <div itemProp="description" className="artbase-excerpt">
