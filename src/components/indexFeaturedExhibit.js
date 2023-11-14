@@ -1,67 +1,50 @@
 import React from "react"
 import { Link } from "gatsby"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql } from "gatsby"
 // import Helmet from "react-helmet"
 import styled from "styled-components"
 
-const FeaturedExhibit = () => {
-  const data = useStaticQuery(graphql`
-  {
-    wpPost(
-      tags: { nodes: { elemMatch: { name: { eq: "featured exhibit" } } } }
-    ) {
-      id
-      title
-      excerpt
-      uri
-      excerpt
-      featuredImage {
-        node {
-          altText
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 2000, quality: 60) {
-                ...GatsbyImageSharpFluid_tracedSVG
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`)
+const FeaturedExhibit = () => {  
 
-// const altText = data.wpPost.featuredImage?.node?.altText
-
-// const featuredImage = {
-//   fluid: data.wpPost.featuredImage?.node?.localFile?.childImageSharp.fluid,
-//   alt: altText !== "" ? altText : data.wpPost.title,
-// }
+// xi li  query GetId($id: String = "cG9zdDo5Nzgx")
 
   return (
     <Content>
-       <div id="info">
+      <div id="info">
         <h2>Featured Artist -- Xi Li</h2>
-        <Link to="/thursday-trader/"> 
-        {/* <Link to={data.wpPost.uri} key={data.wpPost.id}> */}
+          <Link to="/artbase/xi-li-within-web-of-mask/" key="cG9zdDo5ODEw">
           <CTA>--READ ON</CTA>
         </Link>
       </div>
       <div class="container">
-        <html>
-          <body>
-            <br />
-            <iframe
-              src="https://player.vimeo.com/video/879621293?h=14b0d660b3&color=dec78c"
-              style={{ width: "100vw", height: "85vh" }}
-              frameborder="0"
-              allow="autoplay; fullscreen; picture-in-picture; gyroscope; accelerometer"
-              allowfullscreen
-            ></iframe>
-            <script src="https://player.vimeo.com/api/player.js"></script>
-          </body>
-        </html>
+        {/* <iframe ---------version in post - delete after merge
+          src="https://player.vimeo.com/video/883875650?h=0521838bdf&badge=0autopause=0quality_selector=1&player_id=0&app_id=58479"
+        ></iframe> */}
+        <iframe
+          src="https://player.vimeo.com/video/879621293?h=14b0d660b3&color=dec78c"
+          style={{
+            width: "100vw",
+            height: "85vh",
+          }}
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; gyroscope; accelerometer"
+          allowfullscreen
+          title="Xi Li李曦, ↪︎I↩︎ (Within Web of Mask), 2023"
+        ></iframe>
       </div>
+      <div
+          style={{
+            fontFamily: "math",
+            fontSize: "1.5em",
+            textAlign: "center",
+            margin: "5px",
+            borderBottom: "2px solid #859508"
+          }}
+        >
+          <p>Xi Li 李曦 - ↪︎I↩︎ (Within Web of Mask), 2023</p>
+      
+      </div>
+      <script src="https://player.vimeo.com/api/player.js"></script>
     </Content>
   )
 }
@@ -75,7 +58,7 @@ const Content = styled.section`
       font-size: 3.4rem;
     }
   }
-  
+
   h3 {
     color: #859508;
   }
@@ -84,7 +67,6 @@ const Content = styled.section`
     color: black;
     display: grid;
     min-height: 60vh;
-    border-bottom: 2px solid #859508;
 
     @media screen and (min-width: 940px) {
       grid-template-columns: 1fr 1fr;
