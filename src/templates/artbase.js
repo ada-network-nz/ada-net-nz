@@ -71,7 +71,7 @@ const ArtbaseIndex = ({
                 post.id ===
                   "cG9zdDo4NjMy" &&
                   (
-                    <Link to={uri} itemProp="url">
+                    <Link to="/thursday-trader/">
                       <Image
                         fluid={featuredImage.fluid}
                         alt={featuredImage.alt}

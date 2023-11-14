@@ -50,7 +50,9 @@ const Tag = ({ data }) => {
       setSelectedCategories([...selectedCategories, category])
     }
   }
-
+  // in the future, we would like a better way embed the thursday trader game in the post, so we don't have
+  // to do this weird conditional routing everywhere
+  const gameLink = "/thursday-trader"
   return (
     <Layout>
       <Title>
@@ -70,10 +72,10 @@ const Tag = ({ data }) => {
           </CategoryBubble>
         ))}
       </CategoryList>
-      {selectedCategories.length && (
+      {selectedCategories.length ? (
         <PostsList>
           {filteredPosts.map((post, index) => {
-            const { title, date, uri } = post
+            const { title, date, uri, id } = post
 
             const altText = post.featuredImage?.node?.altText
 
@@ -84,9 +86,12 @@ const Tag = ({ data }) => {
             }
 
             return (
-              <li key={uri}>
+              <li key={uri} style={{ listStyleType: 'none' }}>
                 {featuredImage?.fluid && (
-                  <Link to={uri} itemProp="url">
+                  <Link
+                    to={id === "cG9zdDo4NjMy" ? gameLink : uri}
+                    itemProp="url"
+                  >
                     <Image
                       fluid={featuredImage.fluid}
                       alt={featuredImage.alt}
@@ -97,7 +102,10 @@ const Tag = ({ data }) => {
 
                 <div className="artbase-info">
                   <h2>
-                    <Link to={uri} itemProp="url">
+                    <Link
+                      to={id === "cG9zdDo4NjMy" ? gameLink : uri}
+                      itemProp="url"
+                    >
                       <span itemProp="headline">{parse(title)}</span>
                     </Link>
                   </h2>
@@ -107,8 +115,9 @@ const Tag = ({ data }) => {
             )
           })}
         </PostsList>
-      )}
-      <Text>OR</Text>
+      ) : null }
+      <br></br>
+      <h1>OR</h1>
       <br></br>
 
       <SearchBar>
@@ -187,6 +196,10 @@ const PostsList = styled.div`
     &:hover {
       color: black;
       background: var(--color-primary-light);
+    }
+
+    li {
+      list-style-type: none;
     }
 
     img {
