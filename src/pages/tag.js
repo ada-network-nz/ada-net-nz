@@ -117,7 +117,7 @@ const Tag = ({ data }) => {
         </PostsList>
       ) : null }
       <br></br>
-      <h1>OR</h1>
+      <Text>OR</Text>
       <br></br>
 
       <SearchBar>
