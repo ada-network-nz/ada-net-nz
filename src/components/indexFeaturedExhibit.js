@@ -11,7 +11,7 @@ const FeaturedExhibit = () => {
   return (
     <Content>
       <div id="info">
-        <h2>Featured Artist -- Xi Li</h2>
+        <h2>Featured Artist -- Xi Li 李曦 </h2>
           <Link to="/artbase/xi-li-within-web-of-mask/" key="cG9zdDo5ODEw">
           <CTA>--READ ON</CTA>
         </Link>
