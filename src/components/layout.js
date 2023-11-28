@@ -32,7 +32,7 @@ const Layout = ({ isHomePage, children }) => {
         className="global-wrapper"
         data-is-root-path={isHomePage}
       >
-        {children}
+        <div className="full-height">{children}</div>
 
         <Footer />
       </div>

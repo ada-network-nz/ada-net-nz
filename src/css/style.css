@@ -399,11 +399,18 @@ a:hover {
 /* Custom classes */
 
 /* TURNED OFF FOR NOW */
-/* .global-wrapper { */
-/* animation: page-in 800ms 1 normal 100ms both; */
-/* margin: var(--spacing-0) auto; */
-/* max-width: var(--maxWidth-wrapper); */
-/* } */
+.global-wrapper {
+  /* animation: page-in 800ms 1 normal 100ms both; */
+  /* margin: var(--spacing-0) auto; */
+  /* max-width: var(--maxWidth-wrapper); */
+  min-height: calc(100vh - 128px);
+}
+
+@media screen and (min-width: 940px) {
+  .full-height {
+    min-height: calc(100vh - 128px);
+  }
+}
 
 /* @media screen and (min-width: 880px) {
   .global-wrapper {
