@@ -389,6 +389,9 @@ a {
   word-break: break-word;
   text-decoration: none;
   transition: color 300ms;
+
+  cursor: pointer;
+  -webkit-user-drag: none;
 }
 
 a:hover {
@@ -573,6 +576,8 @@ body::-webkit-scrollbar-thumb {
   letter-spacing: 0.03rem;
 
   cursor: pointer;
+  -webkit-user-drag: none;
+  user-select: none;
   transition: box-shadow 300ms ease-out;
 }
 
@@ -693,6 +698,8 @@ html[data-scroll="0"] .nav-link-home {
   flex-direction: column;
   border-radius: var(--borderRadius-small);
 
+  cursor: pointer;
+  -webkit-user-drag: none;
   animation: fade-in 800ms 1 ease-out 200ms both;
   transition: all 1000ms;
 }
