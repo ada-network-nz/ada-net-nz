@@ -64,25 +64,29 @@ const IndexEvent = () => {
 
   return (
     <IndexEventContent>
-      <div className="container">
-        <div className="info">
-          <h4>—{renderEventTitle()}</h4>
-          <h2>{data.wpPost.title}</h2>
-          <p>{parse(data.wpPost.excerpt)}</p>
-          <Link to={data.wpPost.uri} key={data.wpPost.id}>
-            <CTA>—LEARN MORE</CTA>
+      <div className="content">
+        <h4>{renderEventTitle()}</h4>
+        <h2>{data.wpPost.title}</h2>
+        <p>{parse(data.wpPost.excerpt)}</p>
+        <div className="button-wrapper">
+          <Link
+            className="button-cta button-cta-primary"
+            to={data.wpPost.uri}
+            key={data.wpPost.id}
+          >
+            LEARN MORE
           </Link>
-          <Link to="/events/">
-            <CTA>—OTHER EVENTS</CTA>
+          <Link className="button-cta" to="/events/">
+            OTHER EVENTS
           </Link>
         </div>
-        <Image
-          fluid={featuredImage.fluid}
-          alt={featuredImage.alt}
-          style={{ width: "100%" }}
-          className="image"
-        />
       </div>
+
+      <Image
+        fluid={featuredImage.fluid}
+        alt={featuredImage.alt}
+        className="image"
+      />
     </IndexEventContent>
   )
 }
@@ -90,56 +94,50 @@ const IndexEvent = () => {
 export default IndexEvent
 
 const IndexEventContent = styled.section`
-  h2 {
-    font-size: 1.8rem;
-    @media screen and (min-width: 940px) {
-      font-size: 3.4rem;
-    }
+  display: grid;
+  min-height: 90vh;
+  padding-bottom: var(--spacing-10);
+
+  .content {
+    padding: var(--spacing-8) var(--spacing-8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 780px;
   }
 
-  .container {
-    color: black;
-    display: grid;
-    /* align-content: center; */
-    min-height: 100vh;
-    border-bottom: 2px solid #859508;
-
-    @media screen and (min-width: 940px) {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .info {
-      padding: 1rem 15% 4rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-    }
+  .gatsby-image-wrapper {
+    aspect-ratio: 1 / 1;
+    border-radius: var(--borderRadius-small);
+    width: calc(100vw - 2rem);
+    margin: 1rem;
   }
 
   .image {
     grid-row: 1;
-    @media screen and (min-width: 940px) {
-      grid-row: unset;
-    }
   }
-`
-const CTA = styled.button`
-   {
-    font-size: 1rem;
-    display: flex;
-    background: black;
-    padding: 0.2rem 0.8rem;
-    text-align: center;
-    color: #e5f950;
-    border: 1px solid #e5f950;
-    box-shadow: 4px 4px 0 #e5f950;
-    border-radius: 1rem;
-    margin-bottom: 10px;
 
-    &:hover {
-      color: black;
-      background-color: #859508;
+  /* DESKTOP */
+  @media screen and (min-width: 940px) {
+    padding-bottom: 0;
+    grid-template-columns: 1fr 1fr;
+
+    .gatsby-image-wrapper {
+      margin: 0;
+      aspect-ratio: unset;
+      width: 100%;
+      border-radius: var(--borderRadius-large) 0 0 var(--borderRadius-large);
+    }
+
+    .content {
+      padding-block: var(--spacing-16);
+      padding-left: var(--spacing-32);
+      padding-right: var(--spacing-20);
+    }
+
+    .image {
+      grid-row: unset;
     }
   }
 `

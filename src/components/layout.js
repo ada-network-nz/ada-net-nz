@@ -22,17 +22,17 @@ const Layout = ({ isHomePage, children }) => {
   `)
 
   return (
-    <main style={{ backgroundColor: "white" }}>
-      <Header title={title} isHomePage={isHomePage} />
-
+    <main>
       <Navigation isHomePage={isHomePage} />
+
+      <Header title={title} isHomePage={isHomePage} />
 
       <div
         id="content-home"
         className="global-wrapper"
         data-is-root-path={isHomePage}
       >
-        <main>{children}</main>
+        {children}
 
         <Footer />
       </div>

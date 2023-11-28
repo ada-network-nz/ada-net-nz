@@ -48,14 +48,21 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
             <Link href="#content">
               <h1 itemProp="headline">{parse(post.title)}</h1>
             </Link>
-            {tags &&
-              tags.map((tag, index) => {
-                return (
-                  <Link to={tag.link} className="tag" key={index}>
-                    {tag.name} {index !== tags.length - 1}
-                  </Link>
-                )
-              })}
+
+            <div className="tag-wrapper">
+              {tags &&
+                tags.map((tag, index) => {
+                  return (
+                    <Link
+                      to={tag.link}
+                      className="button-cta button-tag"
+                      key={index}
+                    >
+                      {tag.name} {index !== tags.length - 1}
+                    </Link>
+                  )
+                })}
+            </div>
           </div>
 
           {/* <p>{post.date}</p> */}
@@ -68,24 +75,46 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
         )}
       </Post>
 
-      <PostNav>
-        <ul>
-          <li>
-            {previous && (
-              <Link to={previous.uri} rel="prev">
-                ⇐ {parse(previous.title)}
-              </Link>
-            )}
-          </li>
+      <PostNav className="button-wrapper">
+        {previous && (
+          <Link
+            className="button-cta button-cta-primary"
+            to={previous.uri}
+            rel="prev"
+          >
+            <svg
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M20 11v2H8v2H6v-2H4v-2h2V9h2v2h12zM10 7H8v2h2V7zm0 0h2V5h-2v2zm0 10H8v-2h2v2zm0 0h2v2h-2v-2z"
+                fill="currentColor"
+              />
+            </svg>{" "}
+            {parse(previous.title)}
+          </Link>
+        )}
 
-          <li>
-            {next && (
-              <Link to={next.uri} rel="next">
-                {parse(next.title)} ⇒
-              </Link>
-            )}
-          </li>
-        </ul>
+        {next && (
+          <Link
+            className="button-cta button-cta-primary"
+            to={next.uri}
+            rel="next"
+          >
+            {parse(next.title)}{" "}
+            <svg
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M4 11v2h12v2h2v-2h2v-2h-2V9h-2v2H4zm10-4h2v2h-2V7zm0 0h-2V5h2v2zm0 10h2v-2h-2v2zm0 0h-2v2h2v-2z"
+                fill="currentColor"
+              />
+            </svg>
+          </Link>
+        )}
       </PostNav>
     </Layout>
   )
@@ -98,19 +127,6 @@ const Post = styled.article`
     font-variation-settings: "wdth" 120;
   }
 
-  h2 {
-    font-size: 2rem;
-    margin-top: 0;
-    margin-bottom: 0.4rem;
-  }
-
-  .wp-block-pullquote p {
-    font-size: 1.6rem;
-    @media screen and (min-width: 940px) {
-      font-size: 2rem;
-    }
-  }
-
   /* FOOTNOTES PADDING FIX */
   p[id*="note"] a:before {
     content: "";
@@ -120,112 +136,114 @@ const Post = styled.article`
   }
 
   header {
+    padding: var(--spacing-4);
+
     @media screen and (min-width: 940px) {
-      max-height: calc(100vh - 38px);
+      padding: 0;
+      max-height: calc(100vh - 48px);
       overflow-y: hidden;
       position: relative;
     }
   }
 
   .hero-image {
+    /* aspect-ratio: 1 / 1; */
+    border-radius: var(--borderRadius-large);
     max-width: 100%;
+    max-height: 100vh;
+    image-rendering: pixelated;
+
+    @media screen and (min-width: 940px) {
+      aspect-ratio: unset;
+      border-radius: 0;
+    }
   }
 
   h1 {
-    /* color: var(--color-primary); */
-    color: white;
-    transition: color 300ms;
-    margin-bottom: 0.8rem;
-    font-size: 1.8rem;
-
+    max-width: 90%;
+    margin-bottom: 0.6rem;
+    transition: text-shadow 600ms;
+    animation: font-loader 2000ms 1 normal 100ms both;
     &:hover {
-      color: var(--color-primary-light);
-    }
-
-    @media screen and (min-width: 940px) {
-      font-size: 3rem;
+      text-shadow: 0 10px 20px var(--color-primary-light);
     }
   }
 
   .hero-content {
-    color: var(--color-primary);
-    background: black;
-    padding: 1.6rem 0.8rem 0.8rem;
-    margin-top: -2px;
-    @media screen and (min-width: 940px) {
-      max-width: 70vw;
-    }
-
-    .tag {
-      display: inline-block;
-      font-size: 0.6rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 0.4rem 0.8rem;
-      margin: 0 0.4rem 0.4rem 0;
-      color: var(--color-primary-light);
-      background-color: var(--color-primary-dark);
-
-      transition: color 300ms, background 300ms;
-
-      &:hover {
-        color: var(--color-primary-dark);
-        background-color: var(--color-primary-light);
-      }
-    }
+    background: var(--color-white);
+    padding: var(--spacing-6) var(--spacing-4);
+    border-radius: var(--borderRadius-large);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 
     @media screen and (min-width: 940px) {
+      border: 1px solid var(--color-black);
+      width: 58vw;
       position: absolute;
-      padding: 1.6em 2.6em 1rem;
-      bottom: 0;
-      left: 0;
+      padding: var(--spacing-6) var(--spacing-8);
+      bottom: var(--spacing-4);
+      left: var(--spacing-4);
     }
+  }
+
+  .tag-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-1);
+  }
+
+  .button-tag {
+    font-size: 0.6rem !important;
+    whitespace: pre;
   }
 
   section {
     margin: 0 auto;
-    padding: 0.8rem;
+    padding: var(--spacing-6) var(--spacing-4);
+
     @media screen and (min-width: 940px) {
       padding-top: 3.4rem;
       max-width: 760px;
     }
 
     .gatsby-image-wrapper {
+      border-radius: var(--borderRadius-small);
       width: 100% !important;
+      image-rendering: pixelated;
+      transition: border-radius 600ms ease-in-out;
+
+      :hover {
+        border-radius: 6rem;
+      }
     }
   }
 `
 
 const PostNav = styled.nav`
-  background: black;
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-1) var(--spacing-4);
 
-  ul {
-    margin: 0;
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-    padding: 1rem;
-    gap: 1rem;
-  }
-
-  li {
-    margin: 0;
+  svg {
+    flex-shrink: 0;
+    width: 16px;
+    /* height: 22px; */
   }
 
   a {
-    height: 100%;
     line-height: 1;
-    display: block;
-    color: var(--color-primary-light);
-    border: 1px solid var(--color-primary-light);
-    border-radius: 1rem;
-    padding: 1rem;
-    transition: color 300ms, border 300ms;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
 
-    &:hover {
-      color: var(--color-primary-bright);
-      border: 1px solid var(--color-primary-bright);
-    }
+  a:last-child {
+    margin-left: auto;
+  }
+
+  @media screen and (min-width: 940px) {
+    flex-wrap: nowrap !important;
   }
 `
 

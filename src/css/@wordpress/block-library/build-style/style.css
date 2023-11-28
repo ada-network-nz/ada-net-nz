@@ -1888,7 +1888,8 @@ p.has-drop-cap.has-background {
 }
 
 p.has-background {
-  padding: 1.25em 2.375em;
+  padding: var(--spacing-6);
+  border-radius: var(--borderRadius-large);
 }
 
 p.has-text-color a {
@@ -1956,8 +1957,11 @@ p.has-text-color a {
 
 .wp-block-pullquote {
   margin: 0 0 1em 0;
-  padding: 3em 0;
+  /* padding: 2em 0 1rem; */
   text-align: center;
+  border: none !important;
+  border-radius: 100%;
+  background: var(--color-white) !important;
 }
 .wp-block-pullquote.alignleft,
 .wp-block-pullquote.alignright {
@@ -2924,15 +2928,16 @@ pre.wp-block-verse {
 
 .has-regular-font-size,
 .has-normal-font-size {
-  font-size: 1em;
+  font-size: var(--fontSize-1);
 }
 
 .has-medium-font-size {
-  font-size: 1.25em;
+  font-size: var(--fontSize-2);
+  line-height: 1.4;
 }
 
 .has-large-font-size {
-  font-size: 2.25em;
+  font-size: var(--fontSize-3);
 }
 
 .has-larger-font-size,

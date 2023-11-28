@@ -53,27 +53,28 @@ const Tag = ({ data }) => {
   // in the future, we would like a better way embed the thursday trader game in the post, so we don't have
   // to do this weird conditional routing everywhere
   const gameLink = "/thursday-trader"
+
   return (
     <Layout>
-      <Title>
-        <Text>Search</Text>
-      </Title>
-      <br></br>
-      <Text>Pick a Category</Text>
-      <br></br>
+      <SearchTitle>
+        <h2>Filter categories</h2>
+      </SearchTitle>
+
       <CategoryList>
         {categories.map((category, index) => (
-          <CategoryBubble
+          <CategoryButton
             key={index}
             active={selectedCategories.includes(category.name)}
             onClick={() => handleCategoryClick(category.name)}
+            className="button-cta"
           >
             {category.name}
-          </CategoryBubble>
+          </CategoryButton>
         ))}
       </CategoryList>
+
       {selectedCategories.length ? (
-        <PostsList>
+        <PostsCollection>
           {filteredPosts.map((post, index) => {
             const { title, date, uri, id } = post
 
@@ -86,171 +87,124 @@ const Tag = ({ data }) => {
             }
 
             return (
-              <li key={uri} style={{ listStyleType: 'none' }}>
+              <Link
+                to={id === "cG9zdDo4NjMy" ? gameLink : uri}
+                itemProp="url"
+                key={uri}
+                className="collection-item"
+              >
                 {featuredImage?.fluid && (
-                  <Link
-                    to={id === "cG9zdDo4NjMy" ? gameLink : uri}
-                    itemProp="url"
-                  >
-                    <Image
-                      fluid={featuredImage.fluid}
-                      alt={featuredImage.alt}
-                      style={{ width: "100%" }}
-                    />
-                  </Link>
+                  <Image
+                    fluid={featuredImage.fluid}
+                    alt={featuredImage.alt}
+                    style={{ width: "100%" }}
+                    className="collection-image"
+                  />
                 )}
 
-                <div className="artbase-info">
-                  <h2>
-                    <Link
-                      to={id === "cG9zdDo4NjMy" ? gameLink : uri}
-                      itemProp="url"
-                    >
-                      <span itemProp="headline">{parse(title)}</span>
-                    </Link>
-                  </h2>
-                  <small className="artbase-date">{date}</small>
+                <div className="collection-info">
+                  <h3>{parse(title)}</h3>
+                  <p className="collection-date">{date}</p>
                 </div>
-              </li>
+              </Link>
             )
           })}
-        </PostsList>
-      ) : null }
-      <br></br>
-      <Text>OR</Text>
-      <br></br>
+        </PostsCollection>
+      ) : (
+        <PostsCollection />
+      )}
 
       <SearchBar>
-        <Text>Search Tags</Text>
+        <h3>Search Tags</h3>
         <input
           type="text"
           placeholder="Search tags"
           value={searchTerm}
           onChange={handleSearch}
         />
-        <br></br>
       </SearchBar>
-      <TagsList>
+
+      <TagsCollection>
         {filteredTags.map((tag, index) => {
           return (
-            <Link to={tag.link} key={index}>
+            <Link className="button-cta" to={tag.link} key={index}>
               {tag.name}
             </Link>
           )
         })}
-      </TagsList>
+      </TagsCollection>
     </Layout>
   )
 }
 
-const Title = styled.div`
-  background: black;
-  padding: 1rem;
+const SearchTitle = styled.div`
+  padding: var(--spacing-4) var(--spacing-4);
 
-  Text {
-    color: var(--color-primary);
-  }
-`
-
-const SearchBar = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-
-  input {
-    border: 1px solid grey;
-    border-radius: 3px;
-    padding: 0.5rem 0.8rem;
-    margin: 2rem;
-    font-size: 1.2rem;
-    flex-grow: 1;
+  h2 {
+    margin: 0;
   }
 `
 
 const CategoryList = styled.div`
   display: flex;
+  padding: var(--spacing-2) var(--spacing-4);
+  gap: 0.4rem;
   flex-wrap: wrap;
-  align-items: center;
 `
 
-const PostsList = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 0.1rem;
-  justify-items: center;
-
-  a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    color: black;
-    background: white;
-    text-transform: uppercase;
-    padding: 0.8rem 0.1rem;
-    transition: color 700ms, background 700ms;
-    width: 100%;
-    font-size: 1.5rem;
-
-    &:hover {
-      color: black;
-      background: var(--color-primary-light);
-    }
-
-    li {
-      list-style-type: none;
-    }
-
-    img {
-      width: 100%;
-      height: auto;
-      margin-bottom: 0.5rem;
-    }
-  }
-
-  @media only screen and (min-width: 880px) {
-    grid-template-columns: repeat(4, 1fr);
-  }
-`
-
-const CategoryBubble = styled.div`
-  border-radius: 20px;
+const CategoryButton = styled.div`
+  font-size: 0.8rem !important;
+  flex-grow: 1;
   background-color: ${({ active }) =>
-    active ? "var(--color-primary)" : "grey"};
-  color: white;
-  margin: 0.5rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  &:hover {
-    color: black;
-    background: var(--color-primary-light);
+    active ? "var(--color-primary-light)" : "var(--color-white)"} !important;
+  &:last-child {
+    display: none;
   }
 `
 
-const TagsList = styled.section`
-  background: black;
+const PostsCollection = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  @media only screen and (min-width: 880px) {
-    grid-template-columns: repeat(8, 1fr);
+  grid-template-colums: 1;
+  padding-block: 1.6rem;
+  padding-inline: 0.8rem;
+  gap: 1.4rem 0.8rem;
+
+  @media only screen and (min-width: 940px) {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+`
+
+const SearchBar = styled.div`
+  padding: var(--spacing-2) var(--spacing-4);
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+
+  h3 {
+    margin: 0;
   }
 
-  a {
-    color: white;
-    background: black;
+  input {
     text-transform: uppercase;
-    padding: 0.8rem 1rem;
-    transition: color 700ms, background 700ms;
+    letter-spacing: 0.03rem;
+    border: 1px solid var(--color-black);
+    border-radius: var(--borderRadius-small);
+    padding: var(--spacing-2) var(--spacing-4);
 
-    &:hover {
-      color: black;
-      background: var(--color-primary-light);
+    flex-grow: 1;
+
+    &:focus {
+      border-color: var(--color-primary-light);
     }
   }
 `
-const Text = styled.h1`
-padding-left: 0.2em;
+
+const TagsCollection = styled.section`
+  padding: var(--spacing-2) var(--spacing-4);
+  display: grid;
+  gap: var(--spacing-2);
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 `
 
 export const query = graphql`

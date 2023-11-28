@@ -52,7 +52,7 @@ const TagsList = ({ name }) => {
 
   return (
     // <div className="tag-list__container">
-    <TagsListContainer>
+    <TagsListContainer className="collection-grid">
       {filteredPosts &&
         filteredPosts.map(
           ({ id, title, excerpt, featuredImage, uri, date, tags }) => {
@@ -61,84 +61,48 @@ const TagsList = ({ name }) => {
               alt: featuredImage?.node?.altText || ``,
             }
 
-            const gameLink = '/thursday-trader' 
+            const gameLink = "/thursday-trader"
 
             return (
-              <Link to={id === "cG9zdDo4NjMy" ? gameLink : uri} className="tag-list__post" key={id}>
+              <Link
+                to={id === "cG9zdDo4NjMy" ? gameLink : uri}
+                className="collection-item"
+                key={id}
+              >
                 {featuredImage && (
                   <Image
                     fluid={image.fluid}
                     alt={image.alt}
+                    className="collection-image"
                     // style={{ marginBottom: 50, width: "100%" }}
                   />
                 )}
-                <div className="tag-list__post-info">
-                  {title && <h2>{title}</h2>}
-                  {date && <p>{date}</p>}
+                <div className="collection-info">
+                  {title && <h3 className="collection-title">{title}</h3>}
+                  {date && <p className="collection-date">{date}</p>}
                 </div>
               </Link>
             )
           }
         )}
-      <Link to="/tag" className="tag-list__explore">
-        <h2>/tag</h2>
+      <Link className="button-cta button-back-tag" to="/tag">
+        <h2>Tags</h2>
       </Link>
     </TagsListContainer>
   )
 }
 
 const TagsListContainer = styled.section`
-  display: grid;
-  gap: 2px;
-  grid-template-columns: repeat(2, 1fr);
-  background: var(--color-primary-dark);
-
-  @media screen and (min-width: 880px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  h2 {
-    font-size: 1.2rem;
-    margin: 0 0 0.4rem 0;
-
-    @media screen and (min-width: 880px) {
-      font-size: 2.2rem;
-    }
-  }
-
-  a {
-    background: white;
-    transition: background 3000ms ease-out;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    &:hover {
-      background: var(--color-primary-light);
-    }
-  }
-
-  .tag-list__post {
-    display: flex;
-
-    &:nth-child(even) {
-      flex-direction: column-reverse;
-    }
-  }
-
-  .tag-list__post-info {
-    padding: 0.8rem;
-    @media screen and (min-width: 880px) {
-      padding: 1.2rem 2rem 0.8rem 0.8rem;
-    }
-  }
-
-  .tag-list__explore {
-    height: 100%;
+  .button-back-tag {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 3rem;
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); */
+    animation: fade-in 800ms 1 normal 200ms both;
+
+    h2 {
+      margin: 0;
+    }
   }
 `
 
