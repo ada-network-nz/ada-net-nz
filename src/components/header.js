@@ -72,7 +72,7 @@ const HeaderContainer = styled.header`
     flex-direction: column;
     justify-content: center;
     line-height: 0.9;
-    animation: fade-in 800ms 1 normal 500ms both;
+    animation: fade-in 800ms 1 ease-out 500ms both;
 
     span {
       display: inline-block;

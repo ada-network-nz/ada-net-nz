@@ -31,7 +31,7 @@ const ArtbaseIndex = ({
     <Layout>
       <Seo title="Artbase" />
       <ArtbaseTitle className="collection-header">
-        <h1>Artbase</h1>
+        <h1>ADA/Artbase</h1>
       </ArtbaseTitle>
 
       <ArtbaseCollection className="collection-grid">

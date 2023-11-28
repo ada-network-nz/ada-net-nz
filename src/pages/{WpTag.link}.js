@@ -10,9 +10,9 @@ const TagPage = ({ data }) => {
     <Layout>
       <TagPageContainer>
         <div className="tag-page__title">
-          <h2>
-            tag == <span>{name}</span>
-          </h2>
+          <h1>
+            ADA/tag /<span>{name}</span>
+          </h1>
         </div>
         <TagsList name={name} />
       </TagPageContainer>
@@ -22,11 +22,11 @@ const TagPage = ({ data }) => {
 
 const TagPageContainer = styled.section`
   .tag-page__title {
-    padding: var(--spacing-2) var(--spacing-4);
     margin-block-start: var(--spacing-2);
+    padding: var(--spacing-4) var(--spacing-4) var(--spacing-2);
 
-    h2 {
-      margin: 0;
+    @media only screen and (min-width: 940px) {
+      margin-block-end: var(--spacing-4);
     }
   }
 `

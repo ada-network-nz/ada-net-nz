@@ -156,7 +156,9 @@ const FooterContainer = styled.footer`
     color: var(--color-white);
 
     &:hover {
-      color: var(--color-primary-bright);
+      color: var(--color-primary-light);
+
+      .
     }
   }
 

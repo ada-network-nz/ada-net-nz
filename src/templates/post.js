@@ -45,9 +45,9 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
           )}
 
           <div className="hero-content">
-            <Link href="#content">
-              <h1 itemProp="headline">{parse(post.title)}</h1>
-            </Link>
+            {/* <Link href="#content"> */}
+            <h1 itemProp="headline">{parse(post.title)}</h1>
+            {/* </Link> */}
 
             <div className="tag-wrapper">
               {tags &&
@@ -137,12 +137,15 @@ const Post = styled.article`
 
   header {
     padding: var(--spacing-4);
+    animation: fade-in 800ms 1 ease-out 200ms both;
 
     @media screen and (min-width: 940px) {
       padding: 0;
       max-height: calc(100vh - 48px);
       overflow-y: hidden;
       position: relative;
+
+      animation: none;
     }
   }
 
@@ -164,9 +167,9 @@ const Post = styled.article`
     margin-bottom: 0.6rem;
     transition: text-shadow 600ms;
     animation: font-loader 2000ms 1 normal 100ms both;
-    &:hover {
+    /* &:hover {
       text-shadow: 0 10px 20px var(--color-primary-light);
-    }
+    } */
   }
 
   .hero-content {

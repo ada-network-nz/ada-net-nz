@@ -98,10 +98,11 @@ const TagsListContainer = styled.section`
     justify-content: center;
     align-items: center;
     /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); */
-    animation: fade-in 800ms 1 normal 200ms both;
+    animation: fade-in 800ms 1 ease-out 200ms both;
 
     h2 {
       margin: 0;
+      text-transform: lowercase;
     }
   }
 `

@@ -99,7 +99,7 @@ const IndexEventContent = styled.section`
   padding-bottom: var(--spacing-10);
 
   .content {
-    padding: var(--spacing-8) var(--spacing-8);
+    padding: var(--spacing-6) var(--spacing-8);
     display: flex;
     flex-direction: column;
     justify-content: center;

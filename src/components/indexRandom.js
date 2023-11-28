@@ -111,7 +111,7 @@ const IndexRandomContent = styled.section`
 
   .content {
     background: var(--color-bg);
-    padding: var(--spacing-8) var(--spacing-8);
+    padding: var(--spacing-6) var(--spacing-8);
     display: flex;
     flex-direction: column;
     justify-content: center;

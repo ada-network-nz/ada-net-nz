@@ -57,10 +57,10 @@ const Tag = ({ data }) => {
   return (
     <Layout>
       <SearchTitle>
-        <h2>Filter categories</h2>
+        <h1>ADA/categories</h1>
       </SearchTitle>
 
-      <CategoryList>
+      <CategoryList className="fade-in">
         {categories.map((category, index) => (
           <CategoryButton
             key={index}
@@ -115,10 +115,10 @@ const Tag = ({ data }) => {
       )}
 
       <SearchBar>
-        <h3>Search Tags</h3>
+        <h2>Search tags</h2>
         <input
           type="text"
-          placeholder="Search tags"
+          placeholder="tags"
           value={searchTerm}
           onChange={handleSearch}
         />
@@ -138,10 +138,11 @@ const Tag = ({ data }) => {
 }
 
 const SearchTitle = styled.div`
-  padding: var(--spacing-4) var(--spacing-4);
+  margin-block-start: var(--spacing-2);
+  padding: var(--spacing-4) var(--spacing-4) var(--spacing-2);
 
-  h2 {
-    margin: 0;
+  @media only screen and (min-width: 940px) {
+    margin-block-end: var(--spacing-4);
   }
 `
 
@@ -150,13 +151,17 @@ const CategoryList = styled.div`
   padding: var(--spacing-2) var(--spacing-4);
   gap: 0.4rem;
   flex-wrap: wrap;
+
+  animation: fade-in 800ms 1 ease-out 200ms both;
 `
 
 const CategoryButton = styled.div`
   font-size: 0.8rem !important;
   flex-grow: 1;
+  color: ${({ active }) =>
+    active ? "var(--color-primary-light)" : "var(--color-black)"} !important;
   background-color: ${({ active }) =>
-    active ? "var(--color-primary-light)" : "var(--color-white)"} !important;
+    active ? "var(--color-black)" : "var(--color-white)"} !important;
   &:last-child {
     display: none;
   }
@@ -168,6 +173,7 @@ const PostsCollection = styled.div`
   padding-block: 1.6rem;
   padding-inline: 0.8rem;
   gap: 1.4rem 0.8rem;
+  animation: fade-in 800ms 1 ease-out 400ms both;
 
   @media only screen and (min-width: 940px) {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -175,13 +181,16 @@ const PostsCollection = styled.div`
 `
 
 const SearchBar = styled.div`
-  padding: var(--spacing-2) var(--spacing-4);
+  padding: var(--spacing-2) var(--spacing-4) var(--spacing-1);
   display: flex;
+  flex-direction: column;
   gap: 1rem;
-  align-items: center;
+  /* align-items: center; */
   justify-content: space-between;
 
-  h3 {
+  animation: fade-in 800ms 1 ease-out 600ms both;
+
+  h2 {
     margin: 0;
   }
 
@@ -191,11 +200,13 @@ const SearchBar = styled.div`
     border: 1px solid var(--color-black);
     border-radius: var(--borderRadius-small);
     padding: var(--spacing-2) var(--spacing-4);
+    outline: none;
 
     flex-grow: 1;
 
-    &:focus {
-      border-color: var(--color-primary-light);
+    &:focus,
+    &:focus-visible {
+      box-shadow: 0 0 20px var(--color-primary-light);
     }
   }
 `
@@ -205,6 +216,13 @@ const TagsCollection = styled.section`
   display: grid;
   gap: var(--spacing-2);
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  animation: fade-in 800ms 1 ease-out 800ms both;
+
+  .button-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `
 
 export const query = graphql`

@@ -10,7 +10,7 @@ const Events = ({ data }) => {
     <Layout>
       <Seo title="Events" />
       <EventsTitle className="collection-header">
-        <h1>Events</h1>
+        <h1>ADA/Events</h1>
       </EventsTitle>
 
       <EventsCollection className="collection-grid">

@@ -240,10 +240,10 @@ const Nav = styled.nav`
 
   svg {
     display: inline;
-    width: 40px;
-    height: 40px;
-    margin-inline-end: 0.8rem;
-    /* margin-block-end: 0.2rem; */
+    width: 38px;
+    /* height: 40px; */
+    margin-inline-end: 1rem;
+    margin-block-end: 0.2rem;
   }
 
   .nav-link {

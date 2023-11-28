@@ -10,7 +10,7 @@ const Library = ({ data }) => {
     <Layout>
       <Seo title="Library" />
       <LibraryTitle className="collection-header">
-        <h1>Library</h1>
+        <h1>ADA/Library</h1>
       </LibraryTitle>
 
       <LibraryCollection className="collection-grid">

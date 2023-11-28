@@ -2767,10 +2767,10 @@ pre.wp-block-verse {
   height: auto;
 }
 
-:root {
-  /* stylelint-disable function-comma-space-after */
-  /* stylelint-enable function-comma-space-after */
-}
+/* :root {
+  stylelint-disable function-comma-space-after
+  stylelint-enable function-comma-space-after
+} */
 :root .has-pale-pink-background-color {
   background-color: #f78da7;
 }
