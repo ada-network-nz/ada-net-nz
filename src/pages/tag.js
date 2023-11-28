@@ -213,12 +213,14 @@ const SearchBar = styled.div`
 
 const TagsCollection = styled.section`
   padding: var(--spacing-2) var(--spacing-4);
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--spacing-2);
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   animation: fade-in 800ms 1 ease-out 800ms both;
 
   .button-cta {
+    flex-grow: 1;
     display: flex;
     align-items: center;
     justify-content: center;

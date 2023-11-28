@@ -97,7 +97,8 @@ const TagsListContainer = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border: none;
     animation: fade-in 800ms 1 ease-out 200ms both;
 
     h2 {
