@@ -146,6 +146,10 @@ const IndexRandomContent = styled.section`
     grid-template-columns: 1fr 1fr;
     padding-bottom: var(--spacing-2);
 
+    h2 {
+      max-width: 18ch;
+    }
+
     .gatsby-image-wrapper {
       max-height: 85vh;
       margin: 0;

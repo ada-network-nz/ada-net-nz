@@ -44,7 +44,7 @@ const NotFoundContainer = styled.section`
 
   h1 {
     animation: font-loader 1500ms 1 normal 1000ms both;
-    font-size: 45vw;
+    font-size: 40vw;
     margin: 0;
     line-height: 0.8;
   }
