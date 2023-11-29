@@ -279,6 +279,7 @@ const Nav = styled.nav`
     .nav-link {
       font-size: 1em;
       padding: 0.4rem 0.6rem;
+      animation: font-loader 1500ms 1 normal 10ms both;
 
       &:hover {
         color: var(--color-black);

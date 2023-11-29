@@ -93,7 +93,7 @@ const IndexLibraryContent = styled.section`
     grid-template-columns: 1fr 1fr;
 
     h2 {
-      max-width: 20ch;
+      max-width: 18ch;
     }
 
     .gatsby-image-wrapper {

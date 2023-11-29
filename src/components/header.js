@@ -59,7 +59,7 @@ const HeaderContainer = styled.header`
     width: calc(100vw - 4rem);
     min-height: calc(100vh - 6rem);
     position: absolute;
-    inset: 4rem 2rem;
+    inset: 3rem 2rem;
     image-rendering: pixelated;
     mix-blend-mode: multiply;
   }
@@ -105,6 +105,7 @@ const HeaderContainer = styled.header`
     }
 
     .header-bg {
+      inset: 4rem 2rem;
       overflow: hidden;
       max-height: calc(100vh - 6rem);
       animation: zoom-in 1000ms 1 cubic-bezier(0, 0, 0.01, 0.97) 300ms both;
