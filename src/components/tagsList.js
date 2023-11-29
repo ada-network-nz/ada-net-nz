@@ -109,6 +109,7 @@ const TagsListContainer = styled.section`
   @media screen and (min-width: 940px) {
     .button-back-tag {
       border: none;
+      box-shadow: none;
     }
   }
 `

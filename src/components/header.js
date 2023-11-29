@@ -23,11 +23,8 @@ const Header = ({ title, isHomePage }) => {
                 <span className="header-cap">A</span>
                 <span className="header-mobile">rts</span>
               </span>
-              <span className="header-line">Network</span>
+              <span className="header-line header-mobile">Network</span>
             </div>
-            {/* <a href="#content-home" className="button-cta button-cta-primary">
-              ENTER
-            </a> */}
           </div>
           <img className="header-bg" src={bg} alt="ada floating orbs" />
         </div>
@@ -94,7 +91,7 @@ const HeaderContainer = styled.header`
     }
 
     .header-cap {
-      font-size: 60vw;
+      font-size: 55vw;
     }
 
     .header-mobile {
@@ -110,8 +107,7 @@ const HeaderContainer = styled.header`
     .header-bg {
       overflow: hidden;
       max-height: calc(100vh - 6rem);
-      /* animation: zoom linear;
-      animation-timeline: scroll(); */
+      animation: zoom-in 1000ms 1 cubic-bezier(0, 0, 0.01, 0.97) 300ms both;
     }
 
     .header-wrapper {

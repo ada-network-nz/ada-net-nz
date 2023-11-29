@@ -92,6 +92,10 @@ const IndexLibraryContent = styled.section`
     padding-bottom: 0;
     grid-template-columns: 1fr 1fr;
 
+    h2 {
+      max-width: 20ch;
+    }
+
     .gatsby-image-wrapper {
       margin: 0;
       aspect-ratio: unset;
