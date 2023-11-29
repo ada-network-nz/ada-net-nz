@@ -103,7 +103,7 @@ const Tag = ({ data }) => {
                 )}
 
                 <div className="collection-info">
-                  <h3>{parse(title)}</h3>
+                  <h3 className="collection-title">{parse(title)}</h3>
                   <p className="collection-date">{date}</p>
                 </div>
               </Link>
@@ -115,10 +115,10 @@ const Tag = ({ data }) => {
       )}
 
       <SearchBar>
-        <h2>Search tags</h2>
+        <h2>Post/tags</h2>
         <input
           type="text"
-          placeholder="tags"
+          placeholder="search tags"
           value={searchTerm}
           onChange={handleSearch}
         />

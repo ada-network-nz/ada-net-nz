@@ -120,21 +120,25 @@ const FooterContainer = styled.footer`
   color: var(--color-white);
   line-height: 1;
   text-transform: uppercase;
+  
+  animation: fade-in 800ms 1 ease-out 600ms both;
 
   .footer-image {
-    width: 100%;
-  }
-
-  svg {
-    width: 11px;
-    margin-inline-end: 0.2rem;
-  }
+      width: 100%;
+    }
+    
+    svg {
+        width: 11px;
+        margin-inline-end: 0.2rem;
+    }
 
   @media screen and (min-width: 940px) {
     padding: var(--spacing-2) var(--spacing-6);
     display: flex;
     justify-content: space-between;
     margin-bottom: var(--spacing-4);
+
+    animation: none;
 
     span {
       display: none;

@@ -97,13 +97,18 @@ const TagsListContainer = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid var(--color-black);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    border: none;
     animation: fade-in 800ms 1 ease-out 200ms both;
 
     h2 {
       margin: 0;
       text-transform: lowercase;
+    }
+  }
+  @media screen and (min-width: 940px) {
+    .button-back-tag {
+      border: none;
     }
   }
 `

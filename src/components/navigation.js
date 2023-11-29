@@ -220,7 +220,7 @@ const Nav = styled.nav`
   padding: var(--spacing-2) var(--spacing-4) var(--spacing-1);
   inset: 0;
   z-index: 666;
-  transition: 400ms ease-in-out;
+  transition: 200ms ease-in-out;
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
   display: flex;
   flex-direction: column;

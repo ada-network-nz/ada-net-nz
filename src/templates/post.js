@@ -137,7 +137,7 @@ const Post = styled.article`
 
   header {
     padding: var(--spacing-4);
-    animation: fade-in 800ms 1 ease-out 200ms both;
+    animation: fade-in 800ms 1 ease-out 300ms both;
 
     @media screen and (min-width: 940px) {
       padding: 0;
@@ -150,7 +150,6 @@ const Post = styled.article`
   }
 
   .hero-image {
-    /* aspect-ratio: 1 / 1; */
     border-radius: var(--borderRadius-large);
     max-width: 100%;
     max-height: 100vh;
@@ -166,10 +165,7 @@ const Post = styled.article`
     max-width: 90%;
     margin-bottom: 0.6rem;
     transition: text-shadow 600ms;
-    animation: font-loader 2000ms 1 normal 100ms both;
-    /* &:hover {
-      text-shadow: 0 10px 20px var(--color-primary-light);
-    } */
+    animation: font-loader 2300ms 1 normal 100ms both;
   }
 
   .hero-content {
@@ -199,9 +195,11 @@ const Post = styled.article`
     whitespace: pre;
   }
 
-  section {
+  #content {
     margin: 0 auto;
     padding: var(--spacing-6) var(--spacing-4);
+
+    animation: fade-in 800ms 1 ease-out 600ms both;
 
     @media screen and (min-width: 940px) {
       padding-top: 3.4rem;
