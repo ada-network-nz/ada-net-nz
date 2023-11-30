@@ -650,6 +650,10 @@ html:not([data-scroll="0"]) .nav-global {
 
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
+html:not([data-scroll]) .nav-global {
+  background: var(--color-bg);
+  box-shadow: none;
+}
 
 html[data-scroll="0"] .nav-link-home {
   display: none;
@@ -659,6 +663,7 @@ html[data-scroll="0"] .nav-link-home {
   html[data-scroll="0"] .nav-link-home {
     display: flex;
     pointer-events: none;
+    user-select: none;
   }
 }
 
