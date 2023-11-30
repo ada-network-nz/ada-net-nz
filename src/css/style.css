@@ -653,6 +653,7 @@ html:not([data-scroll="0"]) .nav-global {
 html:not([data-scroll]) .nav-global {
   background: var(--color-bg);
   box-shadow: none;
+  border: none;
 }
 
 html[data-scroll="0"] .nav-link-home {
