@@ -157,21 +157,12 @@ const Navigation = ({ isHomePage }) => {
 
           <Link
             to="/subscribe/"
+            className="nav-link"
             activeClassName="nav-link--active"
             onClick={() => setOpen(false)}
           >
-            <span>Subscribe</span>
+            Subscribe
           </Link>
-
-          {/* <NavLinkExternal
-            href="https://list.waikato.ac.nz/postorius/lists/ada_list.list.waikato.ac.nz/"
-            className="nav-link"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span>Subscribe ⇨</span>
-          </NavLinkExternal> */}
-         
         </div>
       </Nav>
     </>
