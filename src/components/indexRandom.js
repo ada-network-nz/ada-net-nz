@@ -4,6 +4,8 @@ import Image from "gatsby-image"
 import parse from "html-react-parser"
 import styled from "styled-components"
 
+import bg from "../assets/ada-orb-logo.gif"
+
 const IndexRandom = () => {
   const data = useStaticQuery(graphql`
     query WordPressPostArchiveRandomQuery {
@@ -30,8 +32,6 @@ const IndexRandom = () => {
     }
   `)
 
-  //   console.log(randomPost)
-
   const [newIndex, setNewIndex] = useState(0)
 
   const post = data.allWpPost.nodes
@@ -51,40 +51,53 @@ const IndexRandom = () => {
 
   return (
     <IndexRandomContent>
-      <div>
-        {newIndex > 0 ? (
-          <div className="container">
-            <div className="info">
-              <h2>What a thrill!</h2>
-              <SurpriseButton onClick={() => handleClick()}>
-                AGAIN!
-              </SurpriseButton>
-            </div>
-            <div>
-              <h2>{randomPost.title}</h2>
-              <p>{parse(randomPost.excerpt)}</p>
-              {/* using <a> instead of <Link> to prevent rerenders on mouseover */}
-              <a href={randomPost.uri} key={randomPost.id}>
-                —READ ON
+      {newIndex > 0 ? (
+        <>
+          <div className="content">
+            <h4>Randomizer</h4>
+            <h2>{randomPost.title}</h2>
+            <p>{parse(randomPost.excerpt)}</p>
+            {/* using <a> instead of <Link> to prevent rerenders on mouseover */}
+            <div className="button-wrapper">
+              <a
+                className="button-cta button-cta-primary"
+                href={randomPost.uri}
+                key={randomPost.id}
+              >
+                READ ON
               </a>
-              <br />
-              <Image
-                fluid={featuredImage.fluid}
-                alt={featuredImage.alt}
-                style={{ width: "100%" }}
-                className="image"
-              />
+              <button className="button-cta" onClick={() => handleClick()}>
+                Generate again
+              </button>
             </div>
           </div>
-        ) : (
-          <div className="surprise">
-            <h2>Generate random post</h2>
-            <SurpriseButton onClick={() => handleClick()}>
-              SURPRISE ME
-            </SurpriseButton>
+
+          <Image
+            fluid={featuredImage.fluid}
+            alt={featuredImage.alt}
+            className="image"
+          />
+        </>
+      ) : (
+        <>
+          <div className="content">
+            <h4>Randomizer</h4>
+            <h2>Generate a random post from the ADA network</h2>
+            <button
+              className="button-cta button-cta-primary"
+              onClick={() => handleClick()}
+            >
+              Generate
+            </button>
           </div>
-        )}
-      </div>
+
+          <img
+            className="image image-placeholder"
+            src={bg}
+            alt="ada floating orbs"
+          />
+        </>
+      )}
     </IndexRandomContent>
   )
 }
@@ -92,64 +105,68 @@ const IndexRandom = () => {
 export default IndexRandom
 
 const IndexRandomContent = styled.section`
-  h2 {
-    font-size: 1.8rem;
-    @media screen and (min-width: 940px) {
-      font-size: 3.4rem;
-    }
-  }
+  /* background: var(--color-primary-dark); */
+  display: grid;
+  min-height: 80vh;
 
-  .container {
-    color: black;
-    display: grid;
-    /* align-content: center; */
-    min-height: 100vh;
-
-    @media screen and (min-width: 940px) {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .info {
-      padding: 1rem 15% 4rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-    }
-  }
-
-  .surprise {
+  .content {
+    background: var(--color-bg);
+    padding: var(--spacing-6) var(--spacing-8);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    min-height: 60vh;
-    border: 5px solid #08fe2e;
+    align-items: flex-start;
+  }
+
+  .gatsby-image-wrapper {
+    aspect-ratio: 1 / 1;
+    border-radius: var(--borderRadius-small);
+    width: calc(100vw - 2rem);
+    margin: 1rem;
   }
 
   .image {
     grid-row: 1;
-    @media screen and (min-width: 940px) {
-      grid-row: unset;
-    }
+    max-height: 90vh;
   }
-`
 
-const SurpriseButton = styled.button`
-   {
-    font-size: 2rem;
-    display: flex;
-    background: black;
-    padding: 0.4rem 1.6rem;
-    text-align: center;
-    color: #e5f950;
-    border: 1px solid #e5f950;
-    box-shadow: 6px 6px 0 #e5f950;
-    border-radius: 2rem;
+  .image-placeholder {
+    width: 100%;
+    height: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    padding: 1rem;
+    border-radius: var(--borderRadius-large);
+    filter: invert(1);
+    mix-blend-mode: multiply;
+  }
 
-    &:hover {
-      color: black;
-      background-color: #08fe2e;
+  /* DESKTOP */
+  @media screen and (min-width: 940px) {
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: var(--spacing-2);
+
+    h2 {
+      max-width: 18ch;
+    }
+
+    .gatsby-image-wrapper {
+      max-height: 85vh;
+      margin: 0;
+      aspect-ratio: unset;
+      width: 100%;
+      border-radius: var(--borderRadius-large) 0 0 var(--borderRadius-large);
+    }
+
+    .content {
+      padding-block: var(--spacing-16);
+      padding-left: var(--spacing-32);
+      padding-right: var(--spacing-20);
+    }
+
+    .image {
+      grid-row: unset;
+      /* border-radius: 0 var(--borderRadius-large) var(--borderRadius-large) 0; */
     }
   }
 `

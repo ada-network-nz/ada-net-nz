@@ -1,7 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 
-import bg from "../assets/ada-hero.jpg"
+// import bg from "../assets/ada-hero.jpg"
+import bg from "../assets/ada-net-cluster-horizontal.gif"
 
 const Header = ({ title, isHomePage }) => {
   return (
@@ -9,101 +10,130 @@ const Header = ({ title, isHomePage }) => {
       {isHomePage ? (
         <div className="header-homepage">
           <div className="header-info">
-            <h1>
-              <span>Aotearoa</span>
-              <span>Digital</span>
-              <span>Arts</span>
-              <span>Network—</span>
-            </h1>
-            <a href="#content-home" className="header-subtext">
-              a web of sites
-            </a>
+            <div className="header-wrapper">
+              <span className="header-line">
+                <span className="header-cap">A</span>
+                <span className="header-mobile">otearoa</span>
+              </span>
+              <span className="header-line">
+                <span className="header-cap">D</span>
+                <span className="header-mobile">igital</span>
+              </span>
+              <span className="header-line">
+                <span className="header-cap">A</span>
+                <span className="header-mobile">rts</span>
+              </span>
+              <span className="header-line header-mobile">Network</span>
+            </div>
           </div>
-          <img className="header-bg" src={bg} alt="ada reader cover art" />
+          <img className="header-bg" src={bg} alt="ada floating orbs" />
         </div>
       ) : (
-        <span></span>
+        <></>
       )}
     </HeaderContainer>
   )
 }
 
 const HeaderContainer = styled.header`
-  color: white;
-  background: black;
-
   .header-homepage {
-    /* max-width: 1080px; */
-    /* margin: 0 auto; */
     padding: 2rem 1rem;
     min-height: 100vh;
     overflow: hidden;
-    padding: 30px;
+  }
 
-    .header-info {
-      height: 86vh;
-      position: relative;
-      z-index: 6;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      /* align-items:; */
+  .header-info {
+    pointer-events: none;
+    user-select: none;
+    min-height: calc(100vh - 6rem);
+    position: relative;
+    z-index: 6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header-bg {
+    pointer-events: none;
+    width: calc(100vw - 4rem);
+    min-height: calc(100vh - 6rem);
+    position: absolute;
+    inset: 3rem 2rem;
+    image-rendering: pixelated;
+    mix-blend-mode: multiply;
+  }
+
+  .header-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 0.9;
+    animation: fade-in 800ms 1 ease-out 500ms both;
+
+    span {
+      display: inline-block;
+      text-align: center;
     }
 
-    .header-subtext {
-      font-size: 2rem;
-      display: inline-block;
-      background: black;
-      padding: 0.4rem 1.6rem;
-      text-align: center;
-      color: #e5f950;
-      border: 1px solid #e5f950;
-      box-shadow: 6px 6px 0 #e5f950;
-      border-radius: 2rem;
+    .header-line:nth-child(1) {
+      animation: font-loader 1500ms 1 normal 1000ms both;
+    }
+    .header-line:nth-child(2) {
+      animation: font-loader 1500ms 1 normal 2000ms both;
+    }
+    .header-line:nth-child(3) {
+      animation: font-loader 1500ms 1 normal 3000ms both;
+    }
+    .header-line:nth-child(4) {
+      font-size: 3rem;
+      animation: font-loader 1500ms 1 normal 4000ms both;
+    }
 
-      @media screen and (min-width: 940px) {
-        font-size: 2rem;
-        text-align: right;
-        margin-left: auto;
-        transition: color 400ms, background 400ms;
+    .header-cap {
+      font-size: 55vw;
+    }
 
-        &:hover {
-          color: black;
-          background-color: #08fe2e;
-        }
-      }
+    .header-mobile {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 940px) {
+    .header-info {
+      max-height: calc(100vh - 6rem);
     }
 
     .header-bg {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      object-fit: cover;
+      inset: 4rem 2rem;
+      overflow: hidden;
+      max-height: calc(100vh - 6rem);
+      animation: zoom-in 1000ms 1 cubic-bezier(0, 0, 0.01, 0.97) 300ms both;
     }
 
-    @media screen and (min-width: 940px) {
-      min-height: calc(100vh - 38px);
-    }
+    .header-wrapper {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 2rem;
 
-    h1 {
-      /* text-shadow: 2px 2px 10px #e5f950; */
-      text-shadow: 2px 2px 10px #000000, 6px 6px 10px #000;
-      pointer-events: none;
-      color: white;
-      font-size: 3.6rem;
-      letter-spacing: 1px;
-      @media screen and (min-width: 940px) {
-        font-size: 10vw;
-        line-height: 1;
+      .header-line {
+        display: flex;
+        flex-wrap: nowrap;
       }
 
       span {
-        display: block;
+        font-size: 12vw !important;
       }
+
+      .header-mobile {
+        display: inline-block;
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion) {
+    .header-bg {
+      display: none;
     }
   }
 `

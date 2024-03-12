@@ -50,30 +50,33 @@ const Tag = ({ data }) => {
       setSelectedCategories([...selectedCategories, category])
     }
   }
+  // in the future, we would like a better way embed the thursday trader game in the post, so we don't have
+  // to do this weird conditional routing everywhere
+  const gameLink = "/thursday-trader"
 
   return (
     <Layout>
-      <Title>
-        <h1>Search</h1>
-      </Title>
-      <br></br>
-      <h1>Pick a Category</h1>
-      <br></br>
-      <CategoryList>
+      <SearchTitle>
+        <h1>ADA/categories</h1>
+      </SearchTitle>
+
+      <CategoryList className="fade-in">
         {categories.map((category, index) => (
-          <CategoryBubble
+          <CategoryButton
             key={index}
             active={selectedCategories.includes(category.name)}
             onClick={() => handleCategoryClick(category.name)}
+            className="button-cta"
           >
             {category.name}
-          </CategoryBubble>
+          </CategoryButton>
         ))}
       </CategoryList>
-      {selectedCategories.length && (
-        <PostsList>
+
+      {selectedCategories.length ? (
+        <PostsCollection>
           {filteredPosts.map((post, index) => {
-            const { title, date, uri } = post
+            const { title, date, uri, id } = post
 
             const altText = post.featuredImage?.node?.altText
 
@@ -84,158 +87,146 @@ const Tag = ({ data }) => {
             }
 
             return (
-              <li key={uri}>
+              <Link
+                to={id === "cG9zdDo4NjMy" ? gameLink : uri}
+                itemProp="url"
+                key={uri}
+                className="collection-item"
+              >
                 {featuredImage?.fluid && (
-                  <Link to={uri} itemProp="url">
-                    <Image
-                      fluid={featuredImage.fluid}
-                      alt={featuredImage.alt}
-                      style={{ width: "100%" }}
-                    />
-                  </Link>
+                  <Image
+                    fluid={featuredImage.fluid}
+                    alt={featuredImage.alt}
+                    style={{ width: "100%" }}
+                    className="collection-image"
+                  />
                 )}
 
-                <div className="artbase-info">
-                  <h2>
-                    <Link to={uri} itemProp="url">
-                      <span itemProp="headline">{parse(title)}</span>
-                    </Link>
-                  </h2>
-                  <small className="artbase-date">{date}</small>
+                <div className="collection-info">
+                  <h3 className="collection-title">{parse(title)}</h3>
+                  <p className="collection-date">{date}</p>
                 </div>
-              </li>
+              </Link>
             )
           })}
-        </PostsList>
+        </PostsCollection>
+      ) : (
+        <PostsCollection />
       )}
-      <h1>OR</h1>
-      <br></br>
 
       <SearchBar>
-        <h1>Search Tags</h1>
+        <h2>Post/tags</h2>
         <input
           type="text"
-          placeholder="Search tags"
+          placeholder="search tags"
           value={searchTerm}
           onChange={handleSearch}
         />
-        <br></br>
       </SearchBar>
-      <TagsList>
+
+      <TagsCollection>
         {filteredTags.map((tag, index) => {
           return (
-            <Link to={tag.link} key={index}>
+            <Link className="button-cta" to={tag.link} key={index}>
               {tag.name}
             </Link>
           )
         })}
-      </TagsList>
+      </TagsCollection>
     </Layout>
   )
 }
 
-const Title = styled.div`
-  background: black;
-  padding: 1rem;
+const SearchTitle = styled.div`
+  margin-block-start: var(--spacing-2);
+  padding: var(--spacing-4) var(--spacing-4) var(--spacing-2);
 
-  h1 {
-    color: var(--color-primary);
-  }
-`
-
-const SearchBar = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-
-  input {
-    border: 1px solid grey;
-    border-radius: 3px;
-    padding: 0.5rem 0.8rem;
-    margin: 2rem;
-    font-size: 1.2rem;
-    flex-grow: 1;
+  @media only screen and (min-width: 940px) {
+    margin-block-end: var(--spacing-4);
   }
 `
 
 const CategoryList = styled.div`
   display: flex;
+  padding: var(--spacing-2) var(--spacing-4);
+  gap: 0.4rem;
   flex-wrap: wrap;
-  align-items: center;
+
+  animation: fade-in 800ms 1 ease-out 200ms both;
 `
 
-const PostsList = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 0.1rem;
-  justify-items: center;
-
-  a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    color: black;
-    background: white;
-    text-transform: uppercase;
-    padding: 0.8rem 0.1rem;
-    transition: color 700ms, background 700ms;
-    width: 100%;
-    font-size: 1.5rem;
-
-    &:hover {
-      color: black;
-      background: var(--color-primary-light);
-    }
-
-    img {
-      width: 100%;
-      height: auto;
-      margin-bottom: 0.5rem;
-    }
-  }
-
-  @media only screen and (min-width: 880px) {
-    grid-template-columns: repeat(4, 1fr);
-  }
-`
-
-const CategoryBubble = styled.div`
-  border-radius: 20px;
+const CategoryButton = styled.div`
+  font-size: 0.8rem !important;
+  flex-grow: 1;
+  color: ${({ active }) =>
+    active ? "var(--color-primary-light)" : "var(--color-black)"} !important;
   background-color: ${({ active }) =>
-    active ? "var(--color-primary)" : "grey"};
-  color: white;
-  margin: 0.5rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  &:hover {
-    color: black;
-    background: var(--color-primary-light);
+    active ? "var(--color-black)" : "var(--color-white)"} !important;
+  &:last-child {
+    display: none;
   }
 `
 
-const TagsList = styled.section`
-  background: black;
+const PostsCollection = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  @media only screen and (min-width: 880px) {
-    grid-template-columns: repeat(8, 1fr);
+  grid-template-colums: 1;
+  padding-block: 1.6rem;
+  padding-inline: 0.8rem;
+  gap: 1.4rem 0.8rem;
+  animation: fade-in 800ms 1 ease-out 400ms both;
+
+  @media only screen and (min-width: 940px) {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+`
+
+const SearchBar = styled.div`
+  padding: var(--spacing-2) var(--spacing-4) var(--spacing-1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /* align-items: center; */
+  justify-content: space-between;
+
+  animation: fade-in 800ms 1 ease-out 600ms both;
+
+  h2 {
+    margin: 0;
   }
 
-  a {
-    color: white;
-    background: black;
+  input {
     text-transform: uppercase;
-    padding: 0.8rem 1rem;
-    transition: color 700ms, background 700ms;
+    letter-spacing: 0.03rem;
+    border: 1px solid var(--color-black);
+    border-radius: var(--borderRadius-small);
+    padding: var(--spacing-2) var(--spacing-4);
+    outline: none;
 
-    &:hover {
-      color: black;
-      background: var(--color-primary-light);
+    flex-grow: 1;
+
+    &:focus,
+    &:focus-visible {
+      box-shadow: 0 0 20px var(--color-primary-light);
     }
   }
 `
+
+const TagsCollection = styled.section`
+  padding: var(--spacing-2) var(--spacing-4);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  animation: fade-in 800ms 1 ease-out 800ms both;
+
+  .button-cta {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+`
+
 export const query = graphql`
   {
     allWpTag {
