@@ -155,13 +155,13 @@ const Navigation = ({ isHomePage }) => {
             About
           </Link>
 
-          <NavLink
+          <Link
             to="/subscribe/"
             activeClassName="nav-link--active"
             onClick={() => setOpen(false)}
           >
             <span>Subscribe</span>
-          </NavLink>
+          </Link>
 
           {/* <NavLinkExternal
             href="https://list.waikato.ac.nz/postorius/lists/ada_list.list.waikato.ac.nz/"

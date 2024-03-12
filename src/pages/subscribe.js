@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Helmet } from "react-helmet"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -8,18 +8,27 @@ const Subscribe = ({ data }) => {
   //   console.log(data)
   return (
     <Layout>
+      <Helmet>
+        <script src="/x-frame-bypass.js" type="module"></script>
+        <script src="//unpkg.com/@ungap/custom-elements"></script>
+      </Helmet>
       <Seo title="Subscribe" />
       <SubscribeTitle>
         <h1>ADA Mailing List</h1>
       </SubscribeTitle>
-      <iframe src='https://list.waikato.ac.nz/postorius/lists/ada_list.list.waikato.ac.nz/' />
+      <iframe
+        is="x-frame-bypass"
+        title="mailing_list"
+        style={{ width: "90vw", height: "90vh" }}
+        src="https://list.waikato.ac.nz/postorius/lists/ada_list.list.waikato.ac.nz/"
+      />
       <NavLinkExternal
-            href="https://list.waikato.ac.nz/postorius/lists/ada_list.list.waikato.ac.nz/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span>Check it out here ⇨</span>
-          </NavLinkExternal>
+        href="https://list.waikato.ac.nz/postorius/lists/ada_list.list.waikato.ac.nz/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <span>Check it out here ⇨</span>
+      </NavLinkExternal>
     </Layout>
   )
 }
