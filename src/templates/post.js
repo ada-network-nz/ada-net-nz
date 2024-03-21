@@ -46,10 +46,7 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
 
           <div className="hero-content">
             {/* <Link href="#content"> */}
-            <h1 itemProp="headline">
-              {parse(post.title)}
-              <span>— {post.date}</span>
-            </h1>
+            <h1 itemProp="headline">{parse(post.title)}</h1>
 
             {/* <p className="collection-date">{post.date}</p> */}
             {/* </Link> */}
@@ -169,18 +166,6 @@ const Post = styled.article`
     margin-bottom: 0.6rem;
     transition: text-shadow 600ms;
     animation: font-loader 2300ms 1 normal 100ms both;
-
-    span {
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-left: 0.7rem;
-      vertical-align: middle;
-      font-size: 1rem;
-      whitespace: nowrap;
-      display: inline-block;
-      font-family: "archivo";
-      font-variation-settings: "wdth" 120;
-    }
   }
 
   .hero-content {
