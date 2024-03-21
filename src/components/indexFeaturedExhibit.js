@@ -49,11 +49,12 @@ const Content = styled.section`
   h2 {
     color: inherit;
     text-align: center;
-    margin-bottom: var(--spacing-2);
+    margin-bottom: var(--spacing-6);
   }
 
   iframe {
     width: 100%;
+    border-radius: 16px;
   }
 
   .info {
@@ -64,7 +65,7 @@ const Content = styled.section`
   }
 
   @media screen and (min-width: 940px) {
-    padding: var(--spacing-8) var(--spacing-6);
+    padding: var(--spacing-20) var(--spacing-6);
 
     iframe {
       width: 92vw;

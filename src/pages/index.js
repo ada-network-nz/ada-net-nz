@@ -52,9 +52,9 @@ const Home = () => {
   return (
     <Layout isHomePage>
       <Seo title="Homepage" />
+      <IndexEvent />
       <FeaturedExhibit />
       <IndexLibrary />
-      <IndexEvent />
       <IndexArtbase />
       <IndexRandom />
     </Layout>

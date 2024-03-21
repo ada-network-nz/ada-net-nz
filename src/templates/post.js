@@ -46,7 +46,12 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
 
           <div className="hero-content">
             {/* <Link href="#content"> */}
-            <h1 itemProp="headline">{parse(post.title)}</h1>
+            <h1 itemProp="headline">
+              {parse(post.title)}
+              <span>— {post.date}</span>
+            </h1>
+
+            {/* <p className="collection-date">{post.date}</p> */}
             {/* </Link> */}
 
             <div className="tag-wrapper">
@@ -64,8 +69,6 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
                 })}
             </div>
           </div>
-
-          {/* <p>{post.date}</p> */}
         </header>
 
         {!!post.content && (
@@ -162,15 +165,27 @@ const Post = styled.article`
   }
 
   h1 {
-    max-width: 90%;
+    max-width: 95%;
     margin-bottom: 0.6rem;
     transition: text-shadow 600ms;
     animation: font-loader 2300ms 1 normal 100ms both;
+
+    span {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-left: 0.7rem;
+      vertical-align: middle;
+      font-size: 1rem;
+      whitespace: nowrap;
+      display: inline-block;
+      font-family: "archivo";
+      font-variation-settings: "wdth" 120;
+    }
   }
 
   .hero-content {
     background: var(--color-white);
-    padding: var(--spacing-6) var(--spacing-4);
+    padding: var(--spacing-8) var(--spacing-6);
     border-radius: var(--borderRadius-large);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 
@@ -270,7 +285,7 @@ export const pageQuery = graphql`
           link
         }
       }
-      date(formatString: "MMMM DD, YYYY")
+      date(formatString: "DD/MM/YY")
 
       featuredImage {
         node {

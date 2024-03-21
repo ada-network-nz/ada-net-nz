@@ -41,8 +41,6 @@ const IndexLibrary = () => {
 
   return (
     <IndexLibraryContent>
-      <Image fluid={featuredImage.fluid} alt={featuredImage.alt} />
-
       <div className="content">
         <h4>Latest Publication</h4>
         <h2>{data.wpPost.title}</h2>
@@ -60,6 +58,12 @@ const IndexLibrary = () => {
           </Link>
         </div>
       </div>
+
+      <Image
+        fluid={featuredImage.fluid}
+        alt={featuredImage.alt}
+        className="image"
+      />
     </IndexLibraryContent>
   )
 }
@@ -87,6 +91,10 @@ const IndexLibraryContent = styled.section`
     margin: 1rem;
   }
 
+  .image {
+    grid-row: 1;
+  }
+
   /* DESKTOP */
   @media screen and (min-width: 940px) {
     padding-bottom: 0;
@@ -100,13 +108,16 @@ const IndexLibraryContent = styled.section`
       margin: 0;
       aspect-ratio: unset;
       width: 100%;
-      border-radius: 0 var(--borderRadius-large) var(--borderRadius-large) 0;
+      border-radius: var(--borderRadius-large) 0 0 var(--borderRadius-large);
     }
 
     .content {
       padding-block: var(--spacing-16);
-      padding-left: var(--spacing-20);
-      padding-right: var(--spacing-32);
+      padding-left: var(--spacing-32);
+      padding-right: var(--spacing-20);
     }
+
+    .image {
+      grid-row: unset;
   }
 `
