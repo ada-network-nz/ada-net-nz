@@ -74,6 +74,19 @@ const Subscribe = ({ data }) => {
           src="https://list.waikato.ac.nz/archives/list/ada_list@list.waikato.ac.nz/latest"
         />
       </div>
+      <SubscribeBody className="fade-in">
+        <div >
+          <p>Embed not working?&nbsp;&nbsp;
+          <Link
+            href="https://list.waikato.ac.nz/archives/list/ada_list@list.waikato.ac.nz/latest"
+            target="_blank"
+            rel="noreferrer"
+            className="button-cta button-cta-primary button-subscribe"
+          >
+            Click here to see the archives ⇨
+          </Link></p>
+        </div>
+      </SubscribeBody>
     </Layout>
   )
 }
