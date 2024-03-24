@@ -56,8 +56,8 @@ const Subscribe = ({ data }) => {
         </div>
       </SubscribeBody>
 
-      <SubscribeTitle className="fade-in">
-        <h2>ADA/legacy posts</h2>
+      <SubscribeTitle>
+        <h2>ADA/list archive</h2>
       </SubscribeTitle>
       <div className="center">
         <iframe
@@ -74,19 +74,20 @@ const Subscribe = ({ data }) => {
           src="https://list.waikato.ac.nz/archives/list/ada_list@list.waikato.ac.nz/latest"
         />
       </div>
-      <SubscribeBody className="fade-in">
-        <div >
-          <p>Embed not working?&nbsp;&nbsp;
+
+      <SubscribeArchiveLink>
+        <div className="inner">
+          <p>Embed not working?</p>
           <Link
             href="https://list.waikato.ac.nz/archives/list/ada_list@list.waikato.ac.nz/latest"
             target="_blank"
             rel="noreferrer"
             className="button-cta button-cta-primary button-subscribe"
           >
-            Click here to see the archives ⇨
-          </Link></p>
+            Head to the archives ⇨
+          </Link>
         </div>
-      </SubscribeBody>
+      </SubscribeArchiveLink>
     </Layout>
   )
 }
@@ -100,7 +101,7 @@ const SubscribeTitle = styled.div`
   }
 `
 const SubscribeBody = styled.div`
-  padding: 0 1rem 1rem 1rem;
+  padding: 0 var(--spacing-4) var(--spacing-2) var(--spacing-4);
   display: grid;
   gap: 4rem;
   align-items: center;
@@ -127,7 +128,6 @@ const SubscribeBody = styled.div`
   }
 
   @media only screen and (min-width: 940px) {
-    padding: 0 2rem 1rem 2rem;
     grid-template-columns: 1fr 1fr;
     margin-block-end: var(--spacing-4);
 
@@ -142,6 +142,36 @@ const SubscribeBody = styled.div`
       p:last-of-type {
         margin-bottom: 3rem;
       }
+    }
+  }
+`
+const SubscribeArchiveLink = styled.div`
+  margin: 0 var(--spacing-4) var(--spacing-4);
+  display: ;
+
+  .inner {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  p {
+    display: inline-block;
+  }
+
+  .button-subcribe {
+    whitespace: nowrap;
+  }
+
+  @media only screen and (min-width: 940px) {
+    .inner {
+      text-align: right;
+      display: block;
+    }
+
+    p {
+      margin: 0 0.8rem 0 0;
     }
   }
 `
