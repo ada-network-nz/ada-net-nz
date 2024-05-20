@@ -238,20 +238,22 @@ const Nav = styled.nav`
 
   .nav-link {
     line-height: 1;
-    font-size: 2.2rem;
+    font-size: 2rem;
     padding: 0.6rem 1rem;
     flex: 1;
     display: flex;
     align-items: center;
-    transition: background 400ms, color 400ms, border 400ms, box-shadow 400ms;
+    transition: background 400ms, color 400ms, border 400ms, box-shadow 200ms;
     border-radius: 3rem;
     border: 1px solid var(--color-trans);
 
     &--active {
       color: var(--color-primary-light);
       background: var(--color-black);
-      border: 1px solid var(--color-black);
+      border: 1px solid rgba(255, 255, 255, 0.4);
       pointer-events: none;
+      box-shadow: inset 0px 10px 10px rgba(255, 255, 255, 0.5),
+        inset 0px -10px 10px rgba(255, 255, 255, 0.3);
     }
   }
 
@@ -274,8 +276,10 @@ const Nav = styled.nav`
       &:hover {
         color: var(--color-black);
         background: var(--color-white);
-        border: 1px solid var(--color-black);
-        box-shadow: 0 0 20px var(--color-primary-light);
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 20px var(--color-primary-light),
+          inset 0px 5px 5px rgba(0, 0, 0, 0.1),
+          inset 0px -5px 5px rgba(0, 0, 0, 0.2);
       }
     }
 

@@ -185,7 +185,6 @@ const SearchBar = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  /* align-items: center; */
   justify-content: space-between;
 
   animation: fade-in 800ms 1 ease-out 600ms both;

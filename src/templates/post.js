@@ -150,7 +150,8 @@ const Post = styled.article`
   }
 
   .hero-image {
-    border-radius: var(--borderRadius-large);
+    border-radius: var(--borderRadius-large) var(--borderRadius-large) 100px
+      var(--borderRadius-large);
     max-width: 100%;
     max-height: 100vh;
     image-rendering: pixelated;
@@ -171,11 +172,14 @@ const Post = styled.article`
   .hero-content {
     background: var(--color-white);
     padding: var(--spacing-8) var(--spacing-6);
-    border-radius: var(--borderRadius-large);
+    border-radius: var(--borderRadius-large) 100px var(--borderRadius-large)
+      var(--borderRadius-large);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 
     @media screen and (min-width: 940px) {
-      border: 1px solid var(--color-black);
+      box-shadow: inset 10px 10px 12px rgba(0, 0, 0, 0.2),
+        inset -10px -10px 15px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(0, 0, 0, 0.4);
       width: 58vw;
       position: absolute;
       padding: var(--spacing-6) var(--spacing-8);
@@ -197,7 +201,7 @@ const Post = styled.article`
 
   #content {
     margin: 0 auto;
-    padding: var(--spacing-6) var(--spacing-4);
+    padding: 0 var(--spacing-4) var(--spacing-6);
 
     animation: fade-in 800ms 1 ease-out 600ms both;
 
